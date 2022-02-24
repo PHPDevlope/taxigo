@@ -51,7 +51,7 @@
                 @can('provider_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/providers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.providers") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-car-side">
                             </i>
                             {{ trans('cruds.provider.title') }}
                         </a>
@@ -60,7 +60,7 @@
                 @can('fleet_owner_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/fleet-owners*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.fleet-owners") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-crown">
                             </i>
                             {{ trans('cruds.fleetOwner.title') }}
                         </a>
@@ -69,7 +69,7 @@
                 @can('dispatcher_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/dispatchers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispatchers") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-crown">
                             </i>
                             {{ trans('cruds.dispatcher.title') }}
                         </a>
@@ -78,7 +78,7 @@
                 @can('account_manager_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/account-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.account-managers") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-crown">
                             </i>
                             {{ trans('cruds.accountManager.title') }}
                         </a>
@@ -87,7 +87,7 @@
                 @can('dispute_manager_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/dispute-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-managers") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-crown">
                             </i>
                             {{ trans('cruds.disputeManager.title') }}
                         </a>
@@ -100,7 +100,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/statements*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.statements") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs"></i>
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-file"></i>
                             {{ trans('cruds.mStatement.title') }}
                         </a>
                     </li>
@@ -109,7 +109,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/provider-settlement*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.provider-settlement") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs"></i>
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-file"></i>
                             {{ trans('cruds.providersettlement.title') }}
                         </a>
                     </li>
@@ -132,7 +132,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/request-history*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.request-history") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs"></i>
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-infinity"></i>
                             {{ trans('cruds.requestHistory.title') }}
                         </a>
                     </li>
@@ -142,7 +142,7 @@
                         <a class="nav-link {{ request()->is("admin/payment-details*") ? "active" : "" }}"
                            href="{{route('admin.payment-details.payment-histories')}}"
                            onclick="window.openSubNav(this)">
-                            <i class="fa-fw fas c-sidebar-nav-icon fa-users"></i>
+                            <i class="fa-fw fas c-sidebar-nav-icon fa-infinity"></i>
                             Payment History
                         </a>
                     </li>
@@ -162,7 +162,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is("admin/service*") ? "active" : "" }}"
                            href="{{route('admin.service.service-types')}}" onclick="window.openSubNav(this)">
-                            <i class="fa-fw fas c-sidebar-nav-icon fa-users"></i>
+                            <i class="fa-fw fas c-sidebar-nav-icon fa-taxi"></i>
                             Service
                         </a>
                     </li>
@@ -182,7 +182,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/m-settings*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.m-settings") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-cog">
                             </i>
                             {{ trans('cruds.mSetting.title') }}
                         </a>
@@ -192,7 +192,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/app-settings*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.app-settings") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-mobile">
                             </i>
                             {{ trans('cruds.appSetting.title') }}
                         </a>
@@ -202,7 +202,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/payment-settings*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.payment-settings") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-money-bill">
                             </i>
                             {{ trans('cruds.paymentSetting.title') }}
                         </a>
@@ -214,7 +214,7 @@
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/static-page*") ? "nav-link active" : "nav-link" }}"
                            href="{{ route("admin.static-page") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cogs"></i>
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-charging-station"></i>
                             {{ trans('cruds.staticPage.title') }}
                         </a>
                     </li>
