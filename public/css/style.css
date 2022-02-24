@@ -1,0 +1,64 @@
+.navbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 7px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #d9e5ed;
+    border-radius: 5px;
+}
+
+.h-screen::-webkit-scrollbar {
+    width: 8px;
+}
+
+.h-screen::-webkit-scrollbar-thumb {
+    background:rgba(189, 180, 180, 0.6);
+    border-radius: 3px;
+}
+
+.menu-label {
+    margin-top: 0.75rem;
+    padding: 0.50rem 1.25rem;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.box-block {
+    min-height: 150px;
+}
+
+.half-circle {
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    /*background-color: #ff579a;*/
+    border-bottom-left-radius: 100px;
+    border-top: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: right;
+}
+
+.half-circle i {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
+    width: 3rem;
+    height: 3rem;
+    padding-left: 25px;
+}
