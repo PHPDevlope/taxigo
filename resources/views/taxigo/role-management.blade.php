@@ -22,15 +22,6 @@
             </div>
             <!-- Nav -->
             <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                @can('user_access')
-                    <li class="nav-item">
-                        <a class="nav-link  {{ request()->is("admin/role-management/users") ? "active" : "" }}" href="{{ route("admin.role-management.users") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-user">
-                            </i>
-                            {{ trans('cruds.user.title') }}
-                        </a>
-                    </li>
-                @endcan
                 @can('role_access')
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is("admin/role-management/roles") ? "active" : "" }}" href="{{ route("admin.role-management.roles") }}">

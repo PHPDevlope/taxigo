@@ -60,11 +60,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('user-alert/userAlert-alerts', [HomeController::class, 'userAlert'])->name('user-alert/user-alerts');
 
     // Role-Management
-    Route::get('role-management', [HomeController::class, 'roleManagement'])->name('role-management');;
-    Route::get('role-management/users', [HomeController::class, 'roleManagement'])->name('role-management.users');
+    Route::get('role-management', [HomeController::class, 'roleManagement'])->name('role-management');
     Route::get('role-management/roles', [HomeController::class, 'roleManagement'])->name('role-management.roles');
     Route::get('role-management/permissions', [HomeController::class, 'roleManagement'])->name('role-management.permissions');
     Route::get('role-management/audit-logs', [HomeController::class, 'roleManagement'])->name('role-management.audit-logs');
+
+    Route::get('users', [HomeController::class, 'user'])->name('users');
 
     // Providersettlement
     Route::resource('providersettlements', ProvidersettlementController::class, ['except' => ['store', 'update', 'destroy']]);
@@ -127,12 +128,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('dispute-managers', DisputeManagerController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Members
-    Route::get('members', [HomeController::class, 'members'])->name('members');;
-    Route::get('members/providers', [HomeController::class, 'members'])->name('members.providers');
-    Route::get('members/fleet-owners', [HomeController::class, 'members'])->name('members.fleet-owners');
-    Route::get('members/dispatchers', [HomeController::class, 'members'])->name('members.dispatchers');
-    Route::get('members/account-managers', [HomeController::class, 'members'])->name('members.account-managers');
-    Route::get('members/dispute-managers', [HomeController::class, 'members'])->name('members.dispute-managers');
+    Route::get('providers', [HomeController::class, 'provider'])->name('providers');
+    Route::get('fleet-owners', [HomeController::class, 'fleetOwner'])->name('fleet-owners');
+    Route::get('dispatchers', [HomeController::class, 'dispatcher'])->name('dispatchers');
+    Route::get('account-managers', [HomeController::class, 'accountManager'])->name('account-managers');
+    Route::get('dispute-managers', [HomeController::class, 'disputeManager'])->name('dispute-managers');
 
     // Company
     Route::post('companies/media', [CompanyController::class, 'storeMedia'])->name('companies.storeMedia');
@@ -177,10 +177,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('payment-settings', PaymentSettingController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Settings
-    Route::get('settings', [HomeController::class, 'settings'])->name('settings');;
-    Route::get('settings/m-settings', [HomeController::class, 'settings'])->name('settings.m-settings');
-    Route::get('settings/app-settings', [HomeController::class, 'settings'])->name('settings.app-settings');
-    Route::get('settings/payment-settings', [HomeController::class, 'settings'])->name('settings.payment-settings');
+    Route::get('m-settings', [HomeController::class, 'setting'])->name('m-settings');
+    Route::get('app-settings', [HomeController::class, 'appSetting'])->name('app-settings');
+    Route::get('payment-settings', [HomeController::class, 'paymentSetting'])->name('payment-settings');
 
     // Request History
     Route::resource('request-histories', RequestHistoryController::class, ['except' => ['store', 'update', 'destroy']]);

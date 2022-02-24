@@ -14,6 +14,10 @@ class HomeController
         return view('taxigo.role-management');
     }
 
+    public function user() {
+        return view('taxigo.user');
+    }
+
     public function myAccount()
     {
         return view('taxigo.my-account');
@@ -24,14 +28,24 @@ class HomeController
         return view('taxigo.dispute-panel');
     }
 
-    public function members()
-    {
-        return view('taxigo.members');
+    public function provider() {
+        return view('taxigo.provider');
     }
 
-    public function settings()
-    {
-        return view('taxigo.settings');
+    public function fleetOwner() {
+        return view('taxigo.fleet-owner');
+    }
+
+    public function dispatcher() {
+        return view('taxigo.dispatcher');
+    }
+
+    public function accountManager() {
+        return view('taxigo.account-manager');
+    }
+
+    public function disputeManager() {
+        return view('taxigo.dispute-manager');
     }
 
     public function service()
@@ -63,6 +77,21 @@ class HomeController
 
     public function staticPage() {
         return view('taxigo.static-page');
+    }
+
+    public function setting()
+    {
+        return view('taxigo.m-setting');
+    }
+
+    public function appSetting()
+    {
+        return view('taxigo.app-setting');
+    }
+
+    public function paymentSetting()
+    {
+        return view('taxigo.payment-setting');
     }
 
     public function company() {

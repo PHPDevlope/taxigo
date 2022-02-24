@@ -39,18 +39,18 @@
                 @endcan
 
                 <span class="menu-label">Members</span>
-{{--                @can('member_access')--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link {{ request()->is("admin/members*") ? "active" : "" }}"--}}
-{{--                           href="{{route('admin.members.providers')}}" onclick="window.openSubNav(this)">--}}
-{{--                            <i class="fa-fw fas c-sidebar-nav-icon fa-users"></i>--}}
-{{--                            Members--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endcan--}}
+                @can('user_access')
+                    <li class="nav-item">
+                        <a class="nav-link  {{ request()->is("admin/users") ? "active" : "" }}" href="{{ route("admin.users") }}">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-user">
+                            </i>
+                            {{ trans('cruds.user.title') }}
+                        </a>
+                    </li>
+                @endcan
                 @can('provider_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/members/providers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.members.providers") }}">
+                        <a class="{{ request()->is("admin/providers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.providers") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.provider.title') }}
@@ -59,7 +59,7 @@
                 @endcan
                 @can('fleet_owner_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/members/fleet-owners*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.members.fleet-owners") }}">
+                        <a class="{{ request()->is("admin/fleet-owners*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.fleet-owners") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.fleetOwner.title') }}
@@ -68,7 +68,7 @@
                 @endcan
                 @can('dispatcher_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/members/dispatchers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.members.dispatchers") }}">
+                        <a class="{{ request()->is("admin/dispatchers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispatchers") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.dispatcher.title') }}
@@ -77,7 +77,7 @@
                 @endcan
                 @can('account_manager_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/members/account-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.members.account-managers") }}">
+                        <a class="{{ request()->is("admin/account-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.account-managers") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.accountManager.title') }}
@@ -86,13 +86,14 @@
                 @endcan
                 @can('dispute_manager_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/members/dispute-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.members.dispute-managers") }}">
+                        <a class="{{ request()->is("admin/dispute-managers*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-managers") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.disputeManager.title') }}
                         </a>
                     </li>
                 @endcan
+
 
                 <span class="menu-label">Accounts</span>
                 @can('m_statement_access')
@@ -177,19 +178,10 @@
                 @endcan
 
                 <span class="menu-label">Setting</span>
-{{--                @can('setting_access')--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link {{ request()->is("admin/settings*") ? "active" : "" }}"--}}
-{{--                           href="{{route('admin.settings.m-settings')}}" onclick="window.openSubNav(this)">--}}
-{{--                            <i class="fa-fw fas c-sidebar-nav-icon fa-cog"></i>--}}
-{{--                            Settings--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endcan--}}
                 @can('m_setting_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/settings/m-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.settings.m-settings") }}">
+                        <a class="{{ request()->is("admin/m-settings*") ? "nav-link active" : "nav-link" }}"
+                           href="{{ route("admin.m-settings") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.mSetting.title') }}
@@ -198,8 +190,8 @@
                 @endcan
                 @can('app_setting_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/settings/app-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.settings.app-settings") }}">
+                        <a class="{{ request()->is("admin/app-settings*") ? "nav-link active" : "nav-link" }}"
+                           href="{{ route("admin.app-settings") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.appSetting.title') }}
@@ -208,8 +200,8 @@
                 @endcan
                 @can('payment_setting_access')
                     <li class="nav-item">
-                        <a class="{{ request()->is("admin/settings/payment-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.settings.payment-settings") }}">
+                        <a class="{{ request()->is("admin/payment-settings*") ? "nav-link active" : "nav-link" }}"
+                           href="{{ route("admin.payment-settings") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
                             {{ trans('cruds.paymentSetting.title') }}
@@ -232,7 +224,7 @@
                 @can('user_management_access')
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is("admin/role-management*") ? "active" : "" }}"
-                           href="{{route('admin.role-management.users')}}" onclick="window.openSubNav(this)">
+                           href="{{route('admin.role-management.roles')}}" onclick="window.openSubNav(this)">
                             <i class="fa-fw fas c-sidebar-nav-icon fa-users"></i>
                             User Management
                         </a>
