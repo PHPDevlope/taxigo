@@ -2,8 +2,8 @@
     <div wire:ignore class="w-full">
         @if(isset($attributes['multiple']))
             <div id="{{ $attributes['id'] }}-btn-container" class="mb-3">
-                <button type="button" class="btn btn-info btn-sm select-all-button">{{ trans('global.select_all') }}</button>
-                <button type="button" class="btn btn-info btn-sm deselect-all-button">{{ trans('global.deselect_all') }}</button>
+                <button type="button" class="btn d-inline-flex btn-sm btn-dark select-all-button">{{ trans('global.select_all') }}</button>
+                <button type="button" class="btn d-inline-flex btn-sm btn-dark deselect-all-button">{{ trans('global.deselect_all') }}</button>
             </div>
         @endif
         <select class="select2 form-control" data-placeholder="{{ __('Select your option') }}" {{ $attributes }}>

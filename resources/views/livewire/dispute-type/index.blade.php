@@ -1,62 +1,57 @@
 <div>
-    <div class="card-controls sm:flex">
-        <div class="w-full sm:w-1/2">
-            Per page:
-            <select wire:model="perPage" class="form-select w-full sm:w-1/6">
-                @foreach($paginationOptions as $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </select>
-
-            @can('dispute_type_delete')
-                <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
-                    {{ __('Delete Selected') }}
-                </button>
-            @endcan
-
-            @if(file_exists(app_path('Http/Livewire/ExcelExport.php')))
-                <livewire:excel-export model="DisputeType" format="csv" />
-                <livewire:excel-export model="DisputeType" format="xlsx" />
-                <livewire:excel-export model="DisputeType" format="pdf" />
-            @endif
-
-
-
-
-        </div>
-        <div class="w-full sm:w-1/2 sm:text-right">
-            Search:
-            <input type="text" wire:model.debounce.300ms="search" class="w-full sm:w-1/3 inline-block" />
-        </div>
-    </div>
     <div wire:loading.delay>
         Loading...
     </div>
 
-    <div class="overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="table table-index w-full">
-                <thead>
+    <div class="row card bg-white">
+        <div class="row align-items-center pt-4">
+            <div class="col-md-1 col-12 mb-3 mb-md-0">
+                <select wire:model="perPage" class="form-select">
+                    @foreach($paginationOptions as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-5 col-12 mb-3 mb-md-0">
+                @can('user_delete')
+                    <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
+                        {{ __('Delete Selected') }}
+                    </button>
+                @endcan
+            </div>
+
+            <div class="col-md-6 col-12 text-end">
+                <div class="mx-n1">
+                    <input type="text" wire:model.debounce.300ms="search" placeholder="Search" class="btn d-inline-flex btn-sm btn-neutral border-base"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-spaced">
+                <thead class="thead-light">
                     <tr>
-                        <th class="w-9">
+                        <th scope="col">
                         </th>
-                        <th class="w-28">
+                        <th scope="col">
                             {{ trans('cruds.disputeType.fields.id') }}
                             @include('components.table.sort', ['field' => 'id'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.disputeType.fields.dispute_type') }}
                             @include('components.table.sort', ['field' => 'dispute_type'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.disputeType.fields.dispute_issue') }}
                             @include('components.table.sort', ['field' => 'dispute_issue'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.disputeType.fields.status') }}
                             @include('components.table.sort', ['field' => 'status'])
                         </th>
-                        <th>
+                        <th scope="col">
                         </th>
                     </tr>
                 </thead>
@@ -78,21 +73,21 @@
                             <td>
                                 {{ $disputeType->status_label }}
                             </td>
-                            <td>
+                            <td class="text-end">
                                 <div class="flex justify-end">
                                     @can('dispute_type_show')
-                                        <a class="btn btn-sm btn-info mr-2" href="{{ route('admin.dispute-types.show', $disputeType) }}">
+                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.dispute-types.show', $disputeType) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
                                     @can('dispute_type_edit')
-                                        <a class="btn btn-sm btn-success mr-2" href="{{ route('admin.dispute-types.edit', $disputeType) }}">
+                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.dispute-types.edit', $disputeType) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
                                     @can('dispute_type_delete')
-                                        <button class="btn btn-sm btn-rose mr-2" type="button" wire:click="confirm('delete', {{ $disputeType->id }})" wire:loading.attr="disabled">
-                                            {{ trans('global.delete') }}
+                                        <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button" wire:click="confirm('delete', {{ $disputeType->id }})" wire:loading.attr="disabled">
+                                            <i class="bi bi-trash"></i>
                                         </button>
                                     @endcan
                                 </div>
@@ -106,6 +101,7 @@
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 
     <div class="card-body">

@@ -1,120 +1,122 @@
 <div>
-    <div class="card-controls sm:flex">
-        <div class="w-full sm:w-1/2">
-            Per page:
-            <select wire:model="perPage" class="form-select w-full sm:w-1/6">
-                @foreach($paginationOptions as $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </select>
-
-            @can('m_statement_delete')
-                <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
-                    {{ __('Delete Selected') }}
-                </button>
-            @endcan
-
-            @if(file_exists(app_path('Http/Livewire/ExcelExport.php')))
-                <livewire:excel-export model="MStatement" format="csv" />
-                <livewire:excel-export model="MStatement" format="xlsx" />
-                <livewire:excel-export model="MStatement" format="pdf" />
-            @endif
-
-
-
-
-        </div>
-        <div class="w-full sm:w-1/2 sm:text-right">
-            Search:
-            <input type="text" wire:model.debounce.300ms="search" class="w-full sm:w-1/3 inline-block" />
-        </div>
-    </div>
     <div wire:loading.delay>
         Loading...
     </div>
+    <div class="row card bg-white">
+        <div class="row align-items-center pt-4">
+            <div class="col-md-1 col-12 mb-3 mb-md-0">
+                <select wire:model="perPage" class="form-select">
+                    @foreach($paginationOptions as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-    <div class="overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="table table-index w-full">
-                <thead>
-                    <tr>
-                        <th class="w-9">
-                        </th>
-                        <th class="w-28">
-                            {{ trans('cruds.mStatement.fields.id') }}
-                            @include('components.table.sort', ['field' => 'id'])
-                        </th>
-                        <th>
-                            {{ trans('cruds.mStatement.fields.user') }}
-                            @include('components.table.sort', ['field' => 'user.name'])
-                        </th>
-                        <th>
-                            {{ trans('cruds.mStatement.fields.document') }}
-                            @include('components.table.sort', ['field' => 'document.document_name'])
-                        </th>
-                        <th>
-                            {{ trans('cruds.mStatement.fields.files') }}
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($mStatements as $mStatement)
-                        <tr>
-                            <td>
-                                <input type="checkbox" value="{{ $mStatement->id }}" wire:model="selected">
-                            </td>
-                            <td>
-                                {{ $mStatement->id }}
-                            </td>
-                            <td>
-                                @if($mStatement->user)
-                                    <span class="badge badge-relationship">{{ $mStatement->user->name ?? '' }}</span>
-                                @endif
-                            </td>
-                            <td>
-                                @if($mStatement->document)
-                                    <span class="badge badge-relationship">{{ $mStatement->document->document_name ?? '' }}</span>
-                                @endif
-                            </td>
-                            <td>
-                                @foreach($mStatement->files as $key => $entry)
-                                    <a class="link-light-blue" href="{{ $entry['url'] }}">
-                                        <i class="far fa-file">
-                                        </i>
-                                        {{ $entry['file_name'] }}
-                                    </a>
-                                @endforeach
-                            </td>
-                            <td>
-                                <div class="flex justify-end">
-                                    @can('m_statement_show')
-                                        <a class="btn btn-sm btn-info mr-2" href="{{ route('admin.m-statements.show', $mStatement) }}">
-                                            {{ trans('global.view') }}
-                                        </a>
-                                    @endcan
-                                    @can('m_statement_edit')
-                                        <a class="btn btn-sm btn-success mr-2" href="{{ route('admin.m-statements.edit', $mStatement) }}">
-                                            {{ trans('global.edit') }}
-                                        </a>
-                                    @endcan
-                                    @can('m_statement_delete')
-                                        <button class="btn btn-sm btn-rose mr-2" type="button" wire:click="confirm('delete', {{ $mStatement->id }})" wire:loading.attr="disabled">
-                                            {{ trans('global.delete') }}
-                                        </button>
-                                    @endcan
-                                </div>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="10">No entries found.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+            <div class="col-md-5 col-12 mb-3 mb-md-0">
+                @can('user_delete')
+                    <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
+                        {{ __('Delete Selected') }}
+                    </button>
+                @endcan
+            </div>
+
+            <div class="col-md-6 col-12 text-end">
+                <div class="mx-n1">
+                    <input type="text" wire:model.debounce.300ms="search" placeholder="Search" class="btn d-inline-flex btn-sm btn-neutral border-base"/>
+                </div>
+            </div>
         </div>
+
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-spaced">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">
+                            </th>
+                            <th scope="col">
+                                {{ trans('cruds.mStatement.fields.id') }}
+                                @include('components.table.sort', ['field' => 'id'])
+                            </th>
+                            <th scope="col">
+                                {{ trans('cruds.mStatement.fields.user') }}
+                                @include('components.table.sort', ['field' => 'user.name'])
+                            </th>
+                            <th scope="col">
+                                {{ trans('cruds.mStatement.fields.document') }}
+                                @include('components.table.sort', ['field' => 'document.document_name'])
+                            </th>
+                            <th scope="col">
+                                {{ trans('cruds.mStatement.fields.files') }}
+                            </th>
+                            <th scope="col">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($mStatements as $mStatement)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="{{ $mStatement->id }}" wire:model="selected">
+                                </td>
+                                <td>
+                                    {{ $mStatement->id }}
+                                </td>
+                                <td>
+                                    @if($mStatement->user)
+                                        <span class="badge badge-lg badge-dot">
+                                            <i class="bi bi-success"></i>
+                                            {{ $mStatement->user->name ?? '' }}
+                                        </span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($mStatement->document)
+                                        <span class="badge badge-lg badge-dot">
+                                            <i class="bi bi-success"></i>
+                                            {{ $mStatement->document->document_name ?? '' }}
+                                        </span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @foreach($mStatement->files as $key => $entry)
+                                        <a class="link-light-blue" href="{{ $entry['url'] }}">
+                                            <i class="far fa-file">
+                                            </i>
+                                            {{ $entry['file_name'] }}
+                                        </a>
+                                    @endforeach
+                                </td>
+                                <td class="text-end">
+                                    <div class="flex justify-end">
+                                        @can('m_statement_show')
+                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.show', $mStatement) }}">
+                                                {{ trans('global.view') }}
+                                            </a>
+                                        @endcan
+                                        @can('m_statement_edit')
+                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.edit', $mStatement) }}">
+                                                {{ trans('global.edit') }}
+                                            </a>
+                                        @endcan
+                                        @can('m_statement_delete')
+                                            <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button" wire:click="confirm('delete', {{ $mStatement->id }})" wire:loading.attr="disabled">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        @endcan
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="10">No entries found.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <div class="card-body">

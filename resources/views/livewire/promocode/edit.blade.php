@@ -1,6 +1,6 @@
 <form wire:submit.prevent="submit" class="pt-3">
 
-    <div class="form-group {{ $errors->has('promocode.promocode') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.promocode') ? 'invalid' : '' }}">
         <label class="form-label" for="promocode">{{ trans('cruds.promocode.fields.promocode') }}</label>
         <input class="form-control" type="text" name="promocode" id="promocode" wire:model.defer="promocode.promocode">
         <div class="validation-message">
@@ -10,7 +10,7 @@
             {{ trans('cruds.promocode.fields.promocode_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('promocode.discount') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.discount') ? 'invalid' : '' }}">
         <label class="form-label" for="discount">{{ trans('cruds.promocode.fields.discount') }}</label>
         <input class="form-control" type="text" name="discount" id="discount" wire:model.defer="promocode.discount">
         <div class="validation-message">
@@ -20,7 +20,7 @@
             {{ trans('cruds.promocode.fields.discount_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('promocode.promocodes_use') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.promocodes_use') ? 'invalid' : '' }}">
         <label class="form-label">{{ trans('cruds.promocode.fields.promocodes_use') }}</label>
         <select class="form-control" wire:model="promocode.promocodes_use">
             <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>
@@ -35,7 +35,7 @@
             {{ trans('cruds.promocode.fields.promocodes_use_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('promocode.use_count') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.use_count') ? 'invalid' : '' }}">
         <label class="form-label" for="use_count">{{ trans('cruds.promocode.fields.use_count') }}</label>
         <input class="form-control" type="text" name="use_count" id="use_count" wire:model.defer="promocode.use_count">
         <div class="validation-message">
@@ -45,7 +45,7 @@
             {{ trans('cruds.promocode.fields.use_count_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('promocode.from_date') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.from_date') ? 'invalid' : '' }}">
         <label class="form-label" for="from_date">{{ trans('cruds.promocode.fields.from_date') }}</label>
         <x-date-picker class="form-control" wire:model="promocode.from_date" id="from_date" name="from_date" picker="date" />
         <div class="validation-message">
@@ -55,7 +55,7 @@
             {{ trans('cruds.promocode.fields.from_date_helper') }}
         </div>
     </div>
-    <div class="form-group {{ $errors->has('promocode.expiration') ? 'invalid' : '' }}">
+    <div class="form-group mt-2 {{ $errors->has('promocode.expiration') ? 'invalid' : '' }}">
         <label class="form-label" for="expiration">{{ trans('cruds.promocode.fields.expiration') }}</label>
         <x-date-picker class="form-control" wire:model="promocode.expiration" id="expiration" name="expiration" picker="date" />
         <div class="validation-message">
@@ -66,11 +66,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <button class="btn btn-indigo mr-2" type="submit">
+    <div class="form-group mt-4">
+        <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}
         </button>
-        <a href="{{ route('admin.promocodes.index') }}" class="btn btn-secondary">
+        <a data-bs-dismiss="offcanvas" class="btn d-inline-flex btn-sm btn-secondary">
             {{ trans('global.cancel') }}
         </a>
     </div>

@@ -1,74 +1,69 @@
 <div>
-    <div class="card-controls sm:flex">
-        <div class="w-full sm:w-1/2">
-            Per page:
-            <select wire:model="perPage" class="form-select w-full sm:w-1/6">
-                @foreach($paginationOptions as $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </select>
-
-            @can('user_rating_delete')
-                <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
-                    {{ __('Delete Selected') }}
-                </button>
-            @endcan
-
-            @if(file_exists(app_path('Http/Livewire/ExcelExport.php')))
-                <livewire:excel-export model="UserRating" format="csv" />
-                <livewire:excel-export model="UserRating" format="xlsx" />
-                <livewire:excel-export model="UserRating" format="pdf" />
-            @endif
-
-
-
-
-        </div>
-        <div class="w-full sm:w-1/2 sm:text-right">
-            Search:
-            <input type="text" wire:model.debounce.300ms="search" class="w-full sm:w-1/3 inline-block" />
-        </div>
-    </div>
     <div wire:loading.delay>
         Loading...
     </div>
 
-    <div class="overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="table table-index w-full">
-                <thead>
+    <div class="row card bg-white">
+        <div class="row align-items-center pt-4">
+            <div class="col-md-1 col-12 mb-3 mb-md-0">
+                <select wire:model="perPage" class="form-select">
+                    @foreach($paginationOptions as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-5 col-12 mb-3 mb-md-0">
+                @can('user_delete')
+                    <button class="btn btn-rose ml-3 disabled:opacity-50 disabled:cursor-not-allowed" type="button" wire:click="confirm('deleteSelected')" wire:loading.attr="disabled" {{ $this->selectedCount ? '' : 'disabled' }}>
+                        {{ __('Delete Selected') }}
+                    </button>
+                @endcan
+            </div>
+
+            <div class="col-md-6 col-12 text-end">
+                <div class="mx-n1">
+                    <input type="text" wire:model.debounce.300ms="search" placeholder="Search" class="btn d-inline-flex btn-sm btn-neutral border-base"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-spaced">
+                <thead class="thead-light">
                     <tr>
-                        <th class="w-9">
+                        <th scope="col">
                         </th>
-                        <th class="w-28">
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.id') }}
                             @include('components.table.sort', ['field' => 'id'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.request') }}
                             @include('components.table.sort', ['field' => 'request.total_distance'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.user_name') }}
                             @include('components.table.sort', ['field' => 'user_name.name'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.provider_name') }}
                             @include('components.table.sort', ['field' => 'provider_name.name'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.rating') }}
                             @include('components.table.sort', ['field' => 'rating'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.date_time') }}
                             @include('components.table.sort', ['field' => 'date_time'])
                         </th>
-                        <th>
+                        <th scope="col">
                             {{ trans('cruds.userRating.fields.comments') }}
                             @include('components.table.sort', ['field' => 'comments'])
                         </th>
-                        <th>
+                        <th scope="col">
                         </th>
                     </tr>
                 </thead>
@@ -83,17 +78,26 @@
                             </td>
                             <td>
                                 @if($userRating->request)
-                                    <span class="badge badge-relationship">{{ $userRating->request->total_distance ?? '' }}</span>
+                                    <span class="badge badge-lg badge-dot">
+                                        <i class="bi bi-success"></i>
+                                        {{ $userRating->request->total_distance ?? '' }}
+                                    </span>
                                 @endif
                             </td>
                             <td>
                                 @if($userRating->userName)
-                                    <span class="badge badge-relationship">{{ $userRating->userName->name ?? '' }}</span>
+                                    <span class="badge badge-lg badge-dot">
+                                        <i class="bi bi-success"></i>
+                                        {{ $userRating->userName->name ?? '' }}
+                                    </span>
                                 @endif
                             </td>
                             <td>
                                 @if($userRating->providerName)
-                                    <span class="badge badge-relationship">{{ $userRating->providerName->name ?? '' }}</span>
+                                    <span class="badge badge-lg badge-dot">
+                                        <i class="bi bi-success"></i>
+                                        {{ $userRating->providerName->name ?? '' }}
+                                    </span>
                                 @endif
                             </td>
                             <td>
@@ -105,21 +109,21 @@
                             <td>
                                 {{ $userRating->comments }}
                             </td>
-                            <td>
+                            <td class="text-end">
                                 <div class="flex justify-end">
                                     @can('user_rating_show')
-                                        <a class="btn btn-sm btn-info mr-2" href="{{ route('admin.user-ratings.show', $userRating) }}">
+                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.user-ratings.show', $userRating) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
                                     @can('user_rating_edit')
-                                        <a class="btn btn-sm btn-success mr-2" href="{{ route('admin.user-ratings.edit', $userRating) }}">
+                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.user-ratings.edit', $userRating) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
                                     @can('user_rating_delete')
-                                        <button class="btn btn-sm btn-rose mr-2" type="button" wire:click="confirm('delete', {{ $userRating->id }})" wire:loading.attr="disabled">
-                                            {{ trans('global.delete') }}
+                                        <button class="btn btn-sm btn-neutral btn-square text-danger-hover" type="button" wire:click="confirm('delete', {{ $userRating->id }})" wire:loading.attr="disabled">
+                                            <i class="bi bi-trash"></i>
                                         </button>
                                     @endcan
                                 </div>
@@ -134,7 +138,7 @@
             </table>
         </div>
     </div>
-
+    </div>
     <div class="card-body">
         <div class="pt-3">
             @if($this->selectedCount)

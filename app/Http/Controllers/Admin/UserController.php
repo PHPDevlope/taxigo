@@ -14,21 +14,21 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user.index');
+        return view('admin.role-management.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user.create');
+        return view('taxigo.admin.user.create');
     }
 
     public function edit(User $user)
     {
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user.edit', compact('user'));
+        return view('taxigo.admin.user.edit', compact('user'));
     }
 
     public function show(User $user)
@@ -37,7 +37,7 @@ class UserController extends Controller
 
         $user->load('roles');
 
-        return view('admin.user.show', compact('user'));
+        return view('taxigo.admin.user.show', compact('user'));
     }
 
     public function storeMedia(Request $request)

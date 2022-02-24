@@ -1,77 +1,72 @@
-@extends('layouts.app')
+@extends('taxigo.layouts.app')
 
 @section('content')
-<section class="relative w-full h-full py-40 min-h-screen">
-    <div class="container mx-auto px-4 h-full">
-        <div class="flex content-center items-center justify-center h-full">
-            <div class="w-full lg:w-4/12 px-4">
-                <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-                    <div class="rounded-t mb-0 px-6 py-6">
-                        <div class="text-center mb-3">
-                            <h6 class="text-blueGray-500 text-sm font-bold">
-                                {{ __('global.login') }}
-                            </h6>
+    <div class="px-5 py-5 p-lg-0 bg-surface-secondary">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-5 col-xl-4 p-12 p-xl-20 position-fixed start-0 top-0 h-screen overflow-y-hidden bg-dark d-none d-lg-flex flex-column">
+                <!-- Logo -->
+                <a class="d-block" >
+                    <img src="{{asset('images/logo_wide.png')}}" class="h-20" >
+                </a>
+                <!-- Title -->
+                <div class="mt-32 mb-20">
+                    <h1 class="ls-tight font-bolder display-6 text-white mb-5">
+                        Let’s build a better education community.
+                    </h1>
+                    <p class="text-white text-opacity-80">
+                        It's time to create something new.
+                    </p>
+                </div>
+                <!-- Circle -->
+                <div class="w-56 h-56 bg-white rounded-circle position-absolute bottom-0 end-20 transform translate-y-1/2"></div>
+            </div>
+            <div class="col-12 col-md-9 col-lg-7 offset-lg-5 border-left-lg min-h-lg-screen d-flex flex-column justify-content-center py-lg-16 px-lg-20 position-relative">
+                <div class="row">
+                    <div class="col-lg-10 col-md-9 col-xl-6 mx-auto ms-xl-0">
+                        <div class="mt-10 mt-lg-5 mb-6 d-flex align-items-center d-lg-block">
+                            <span class="d-inline-block d-lg-block h1 mb-lg-6 me-3">👋</span>
+                            <h1 class="ls-tight font-bolder h2">
+                                Nice to see you!
+                            </h1>
                         </div>
-                        <hr class="mt-6 border-b-1 border-blueGray-300" />
-                    </div>
-                    <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <div class="relative w-full mb-3">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="email">
-                                    {{ __('global.login_email') }}
-                                </label>
-                                <input id="email" name="email" type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full {{ $errors->has('email') ? ' ring ring-red-300' : '' }}" placeholder="{{ __('global.login_email') }}" required autocomplete="email" autofocus value="{{ old('email') }}" />
+                            <div class="mb-5">
+                                <label class="form-label" for="email">Email / Phone</label>
+                                <input type="email|phone" class="form-control form-control-muted" name="email" id="email">
                                 @error('email')
-                                    <div class="text-red-500">
-                                        <small>{{ $message }}</small>
-                                    </div>
+                                <div class="text-red-500">
+                                    <small>{{ $message }}</small>
+                                </div>
                                 @enderror
                             </div>
-                            <div class="relative w-full mb-3">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="password">
-                                    {{ __('global.login_password') }}
-                                </label>
-                                <input id="password" name="password" type="password" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full {{ $errors->has('password') ? ' ring ring-red-300' : '' }}" placeholder="{{ __('global.login_password') }}" required autocomplete="current-password" />
+                            <div class="mb-5">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" class="form-control form-control-muted" name="password" id="password" autocomplete="current-password">
                                 @error('password')
-                                    <span class="text-red-500">
+                                <span class="text-red-500">
                                         <small>{{ $message }}</small>
                                     </span>
                                 @enderror
+                            </div>
+                            <div class="mb-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" name="check_example" id="check_example">
+                                    <label class="form-check-label" for="check_example">
+                                        Keep me logged in
+                                    </label>
+                                </div>
                             </div>
                             <div>
-                                <label class="inline-flex items-center cursor-pointer"><input id="remember" name="remember" type="checkbox" class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150" {{ old('remember') ? 'checked' : '' }} />
-                                    <span class="ml-2 text-sm font-semibold text-blueGray-600">
-                                        {{ __('global.remember_me') }}
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="text-center mt-6">
-                                <button class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">
+                                <button type="submit" class="btn btn-dark w-full">
                                     {{ __('global.login') }}
                                 </button>
                             </div>
                         </form>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mt-6">
-                    <div class="w-1/2">
-                        @if(Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-blueGray-200">
-                                <small>{{ __('global.forgot_password') }}</small>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="w-1/2 text-right">
-                        @if(Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-blueGray-200">
-                                <small>{{ __('global.register') }}</small>
-                            </a>
-                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
 @endsection
