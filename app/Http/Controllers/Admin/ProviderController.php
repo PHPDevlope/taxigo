@@ -21,20 +21,20 @@ class ProviderController extends Controller
     {
         abort_if(Gate::denies('provider_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.provider.create');
+        return view('taxigo.admin.provider.create');
     }
 
     public function edit(Provider $provider)
     {
         abort_if(Gate::denies('provider_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.provider.edit', compact('provider'));
+        return view('taxigo.admin.provider.edit', compact('provider'));
     }
 
     public function show(Provider $provider)
     {
         abort_if(Gate::denies('provider_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.provider.show', compact('provider'));
+        return view('taxigo.admin.provider.show', compact('provider'));
     }
 }

@@ -9,12 +9,12 @@
                     </div>
                     <div class="col-6 text-end">
                         <div class="mx-n1">
-{{--                            <a data-bs-toggle="offcanvas" href="#offcanvasMain" class="btn d-inline-flex btn-sm btn-dark mx-1">--}}
-{{--                                <span class=" pe-2">--}}
-{{--                                    <i class="bi bi-plus"></i>--}}
-{{--                                </span>--}}
-{{--                                <span>Create</span>--}}
-{{--                            </a>--}}
+                            <a data-bs-toggle="offcanvas" href="#offcanvasMain" class="btn d-inline-flex btn-sm btn-dark mx-1">
+                                <span class=" pe-2">
+                                    <i class="bi bi-plus"></i>
+                                </span>
+                                <span>Create</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -30,21 +30,21 @@
             </div>
         </div>
     </header>
-    {{--    <main class="py-6 bg-surface-secondary">--}}
-    {{--        <div class="container-fluid">--}}
-    {{--            @livewire('user.index')--}}
-    {{--        </div>--}}
+        <main class="py-6 bg-surface-secondary">
+            <div class="container-fluid">
+                @livewire('account-manager.index')
+            </div>
 
-    {{--        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasExampleLabel">--}}
-    {{--            <div class="offcanvas-header">--}}
-    {{--                <h5 class="offcanvas-title" id="Label">--}}
-    {{--                    Add User--}}
-    {{--                </h5>--}}
-    {{--                <button type="button" class="btn-close text-reset text-xs" data-bs-dismiss="offcanvas" aria-label="Close"></button>--}}
-    {{--            </div>--}}
-    {{--            <div class="offcanvas-body pt-0">--}}
-    {{--                @livewire('user.create')--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </main>--}}
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="Label">
+                        Add Account Manager
+                    </h5>
+                    <button type="button" class="btn-close text-reset text-xs" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body pt-0">
+                    @livewire('account-manager.create')
+                </div>
+            </div>
+        </main>
 @endsection

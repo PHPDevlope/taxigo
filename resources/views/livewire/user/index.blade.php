@@ -2,7 +2,6 @@
     <div wire:loading.delay>
         Loading...
     </div>
-
     <div class="row card bg-white">
         <div class="row align-items-center pt-4">
             <div class="col-md-1 col-12 mb-3 mb-md-0">
@@ -187,7 +186,7 @@
                                     {{ $user->address }}
                                 </td>
                                 <td>
-{{--                                    {{ $user->provider_status_label }}--}}
+                                    {{--                                    {{ $user->provider_status_label }}--}}
                                     @if($user->provider_status === "yes")
                                         <span class="badge rounded-pill bg-success">Active</span>
                                     @elseif($user->provider_status === "no")

@@ -21,20 +21,20 @@ class FleetOwnerController extends Controller
     {
         abort_if(Gate::denies('fleet_owner_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.fleet-owner.create');
+        return view('taxigo.admin.fleet-owner.create');
     }
 
     public function edit(FleetOwner $fleetOwner)
     {
         abort_if(Gate::denies('fleet_owner_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.fleet-owner.edit', compact('fleetOwner'));
+        return view('taxigo.admin.fleet-owner.edit', compact('fleetOwner'));
     }
 
     public function show(FleetOwner $fleetOwner)
     {
         abort_if(Gate::denies('fleet_owner_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.fleet-owner.show', compact('fleetOwner'));
+        return view('taxigo.admin.fleet-owner.show', compact('fleetOwner'));
     }
 }

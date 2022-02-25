@@ -1,4 +1,4 @@
-@extends('edrilla.layouts.admin')
+@extends('taxigo.layouts.admin')
 @section('content')
 <header class="bg-surface-primary border-bottom pt-6 pb-6">
     <div class="container-fluid">

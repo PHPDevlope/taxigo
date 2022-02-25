@@ -21,20 +21,20 @@ class AccountManagerController extends Controller
     {
         abort_if(Gate::denies('account_manager_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.account-manager.create');
+        return view('taxigo.admin.account-manager.create');
     }
 
     public function edit(AccountManager $accountManager)
     {
         abort_if(Gate::denies('account_manager_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.account-manager.edit', compact('accountManager'));
+        return view('taxigo.admin.account-manager.edit', compact('accountManager'));
     }
 
     public function show(AccountManager $accountManager)
     {
         abort_if(Gate::denies('account_manager_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.account-manager.show', compact('accountManager'));
+        return view('taxigo.admin.account-manager.show', compact('accountManager'));
     }
 }

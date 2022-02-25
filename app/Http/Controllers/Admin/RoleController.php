@@ -21,14 +21,14 @@ class RoleController extends Controller
     {
         abort_if(Gate::denies('role_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.role.create');
+        return view('taxigo.admin.role.create');
     }
 
     public function edit(Role $role)
     {
         abort_if(Gate::denies('role_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.role.edit', compact('role'));
+        return view('taxigo.admin.role.edit', compact('role'));
     }
 
     public function show(Role $role)
@@ -37,6 +37,6 @@ class RoleController extends Controller
 
         $role->load('permissions');
 
-        return view('admin.role.show', compact('role'));
+        return view('taxigo.admin.role.show', compact('role'));
     }
 }

@@ -21,20 +21,20 @@ class DispatcherController extends Controller
     {
         abort_if(Gate::denies('dispatcher_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispatcher.create');
+        return view('taxigo.admin.dispatcher.create');
     }
 
     public function edit(Dispatcher $dispatcher)
     {
         abort_if(Gate::denies('dispatcher_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispatcher.edit', compact('dispatcher'));
+        return view('taxigo.admin.dispatcher.edit', compact('dispatcher'));
     }
 
     public function show(Dispatcher $dispatcher)
     {
         abort_if(Gate::denies('dispatcher_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispatcher.show', compact('dispatcher'));
+        return view('taxigo.admin.dispatcher.show', compact('dispatcher'));
     }
 }

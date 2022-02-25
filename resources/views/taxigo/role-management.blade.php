@@ -56,9 +56,7 @@
 <main class="py-6 bg-surface-secondary">
     <div class="container-fluid">
         <div>
-            @if(request()->is("admin/role-management/users"))
-                @livewire('user.index')
-            @elseif(request()->is("admin/role-management/roles"))
+            @if(request()->is("admin/role-management/roles"))
                 @livewire('role.index')
             @elseif(request()->is("admin/role-management/permissions"))
                 @livewire('permission.index')
@@ -70,9 +68,7 @@
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="Label">
-                @if(request()->is("admin/role-management/users"))
-                    Add User
-                @elseif(request()->is("admin/role-management/roles"))
+                @if(request()->is("admin/role-management/roles"))
                     Add Role
                 @elseif(request()->is("admin/role-management/permissions"))
                     Add Permission
@@ -81,9 +77,7 @@
             <button type="button" class="btn-close text-reset text-xs" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body pt-0">
-            @if(request()->is("admin/role-management/users"))
-                @livewire('user.create')
-            @elseif(request()->is("admin/role-management/roles"))
+            @if(request()->is("admin/role-management/roles"))
                 @livewire('role.create')
             @elseif(request()->is("admin/role-management/permissions"))
                 @livewire('permission.create')

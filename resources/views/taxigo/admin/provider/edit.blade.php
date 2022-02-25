@@ -8,9 +8,7 @@
                         <!-- Title -->
                         <h4 class="h4 mb-0 ls-tight">
                             {{ trans('global.edit') }}
-                            {{ trans('cruds.user.title_singular') }}:
-                            {{ trans('cruds.user.fields.id') }}
-                            {{ $user->id }}
+                            {{ trans('cruds.provider.title_singular') }}
                         </h4>
                     </div>
                 </div>
@@ -23,7 +21,7 @@
                 <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
                     <div class="card-body">
                         <div>
-                            @livewire('user.edit', [$user])
+                            @livewire('provider.edit')
                         </div>
                     </div>
                 </div>
@@ -31,3 +29,4 @@
         </div>
     </main>
 @endsection
+
