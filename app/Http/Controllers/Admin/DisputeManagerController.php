@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\DisputeManager;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,17 +24,19 @@ class DisputeManagerController extends Controller
         return view('taxigo.admin.dispute-manager.create');
     }
 
-    public function edit(DisputeManager $disputeManager)
+    public function edit(User $user)
     {
         abort_if(Gate::denies('dispute_manager_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.dispute-manager.edit', compact('disputeManager'));
+        return view('taxigo.admin.dispute-manager.edit', compact('user'));
     }
 
-    public function show(DisputeManager $disputeManager)
+    public function show(User $user)
     {
         abort_if(Gate::denies('dispute_manager_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.dispute-manager.show', compact('disputeManager'));
+        $user->load('roles');
+
+        return view('taxigo.admin.dispute-manager.show', compact('user'));
     }
 }

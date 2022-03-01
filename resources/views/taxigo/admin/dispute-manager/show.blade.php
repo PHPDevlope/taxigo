@@ -10,7 +10,7 @@
                             {{ trans('global.view') }}
                             {{ trans('cruds.disputeManager.title_singular') }}:
                             {{ trans('cruds.user.fields.id') }}
-                            {{ $disputeManager->id }}
+                            {{ $user->id }}
                         </h4>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                         {{ trans('cruds.user.fields.id') }}
                                     </th>
                                     <td>
-                                        {{ $disputeManager->id }}
+                                        {{ $user->id }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -38,7 +38,7 @@
                                         {{ trans('cruds.user.fields.name') }}
                                     </th>
                                     <td>
-                                        {{ $disputeManager->name }}
+                                        {{ $user->name }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -46,10 +46,10 @@
                                         {{ trans('cruds.user.fields.email') }}
                                     </td>
                                     <td>
-                                        <a class="link-light-blue" href="mailto:{{ $disputeManager->email }}">
+                                        <a class="link-light-blue" href="mailto:{{ $user->email }}">
                                             <i class="far fa-envelope fa-fw">
                                             </i>
-                                            {{ $disputeManager->email }}
+                                            {{ $user->email }}
                                         </a>
                                     </td>
                                 </tr>
@@ -58,7 +58,7 @@
                                         {{ trans('cruds.user.fields.mobile') }}
                                     </th>
                                     <td>
-                                        {{ $disputeManager->mobile }}
+                                        {{ $user->mobile }}
                                     </td>
                                 </tr>
                                 </tbody>

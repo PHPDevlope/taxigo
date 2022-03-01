@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\FleetOwner;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,17 +24,19 @@ class FleetOwnerController extends Controller
         return view('taxigo.admin.fleet-owner.create');
     }
 
-    public function edit(FleetOwner $fleetOwner)
+    public function edit(User $user)
     {
         abort_if(Gate::denies('fleet_owner_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.fleet-owner.edit', compact('fleetOwner'));
+        return view('taxigo.admin.fleet-owner.edit', compact('user'));
     }
 
-    public function show(FleetOwner $fleetOwner)
+    public function show(User $user)
     {
         abort_if(Gate::denies('fleet_owner_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.fleet-owner.show', compact('fleetOwner'));
+        $user->load('roles');
+
+        return view('taxigo.admin.fleet-owner.show', compact('user'));
     }
 }

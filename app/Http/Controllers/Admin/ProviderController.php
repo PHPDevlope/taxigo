@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Provider;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,17 +24,19 @@ class ProviderController extends Controller
         return view('taxigo.admin.provider.create');
     }
 
-    public function edit(Provider $provider)
+    public function edit(User $user)
     {
         abort_if(Gate::denies('provider_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.provider.edit', compact('provider'));
+        return view('taxigo.admin.provider.edit', compact('user'));
     }
 
-    public function show(Provider $provider)
+    public function show(User $user)
     {
         abort_if(Gate::denies('provider_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.provider.show', compact('provider'));
+        $user->load('roles');
+
+        return view('taxigo.admin.provider.show', compact('user'));
     }
 }

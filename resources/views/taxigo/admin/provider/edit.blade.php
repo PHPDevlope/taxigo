@@ -21,7 +21,7 @@
                 <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
                     <div class="card-body">
                         <div>
-                            @livewire('provider.edit')
+                            @livewire('provider.edit', [$user])
                         </div>
                     </div>
                 </div>

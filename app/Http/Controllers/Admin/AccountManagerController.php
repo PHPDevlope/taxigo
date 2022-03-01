@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\AccountManager;
+use App\Models\User;
 use Gate;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class AccountManagerController extends Controller
@@ -24,17 +23,19 @@ class AccountManagerController extends Controller
         return view('taxigo.admin.account-manager.create');
     }
 
-    public function edit(AccountManager $accountManager)
+    public function edit(User $user)
     {
         abort_if(Gate::denies('account_manager_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.account-manager.edit', compact('accountManager'));
+        return view('taxigo.admin.account-manager.edit', compact('user'));
     }
 
-    public function show(AccountManager $accountManager)
+    public function show(User $user)
     {
         abort_if(Gate::denies('account_manager_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('taxigo.admin.account-manager.show', compact('accountManager'));
+        $user->load('roles');
+
+        return view('taxigo.admin.account-manager.show', compact('user'));
     }
 }
