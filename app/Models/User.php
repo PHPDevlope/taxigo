@@ -199,6 +199,11 @@ class User extends Authenticatable implements HasLocalePreference, HasMedia
         return $this->belongsToMany(Role::class);
     }
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
     public function getDeviceTypeLabelAttribute($value)
     {
         return static::DEVICE_TYPE_SELECT[$this->device_type] ?? null;

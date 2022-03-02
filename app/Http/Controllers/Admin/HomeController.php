@@ -9,6 +9,11 @@ class HomeController
         return view('taxigo.admin.home');
     }
 
+    public function dispatcherPanel()
+    {
+        return view('taxigo.admin.dispatcher-panel');
+    }
+
     public function roleManagement()
     {
         return view('taxigo.role-management');

@@ -10,7 +10,8 @@ class AddRelationshipFieldsToRequestHistoriesTable extends Migration
     {
         Schema::table('request_histories', function (Blueprint $table) {
             $table->unsignedBigInteger('user_name_id')->nullable();
-            $table->foreign('user_name_id', 'user_name_fk_6024795')->references('id')->on('users');
+            $table->foreign('user_name_id', '
+            user_name_fk_6024795')->references('id')->on('users');
             $table->unsignedBigInteger('provider_name_id')->nullable();
             $table->foreign('provider_name_id', 'provider_name_fk_6024796')->references('id')->on('users');
             $table->unsignedBigInteger('coupon_id')->nullable();

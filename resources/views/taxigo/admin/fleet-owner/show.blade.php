@@ -10,7 +10,7 @@
                             {{ trans('global.view') }}
                             {{ trans('cruds.user.title_singular') }}:
                             {{ trans('cruds.user.fields.id') }}
-                            {{ $fleetOwner->id }}
+                            {{ $user->id }}
                         </h4>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                         {{ trans('cruds.user.fields.id') }}
                                     </th>
                                     <td>
-                                        {{ $fleetOwner->id }}
+                                        {{ $user->id }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -38,12 +38,15 @@
                                         {{ trans('cruds.user.fields.name') }}
                                     </th>
                                     <td>
-                                        {{ $fleetOwner->name }}
+                                        {{ $user->name }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         Company Name
+                                    </td>
+                                    <td>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -51,7 +54,7 @@
                                         {{ trans('cruds.user.fields.email') }}
                                     </td>
                                     <td>
-
+                                        {{ $user->email }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -59,7 +62,7 @@
                                         {{ trans('cruds.user.fields.mobile') }}
                                     </th>
                                     <td>
-                                        {{ $fleetOwner->mobile }}
+                                        {{ $user->mobile }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -67,7 +70,11 @@
                                         Profile
                                     </th>
                                     <td>
-
+                                        @foreach($user->profile as $key => $entry)
+                                            <a class="link-photo" href="{{ $entry['url'] }}">
+                                                <img src="{{ $entry['preview_thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
+                                            </a>
+                                        @endforeach
                                     </td>
                                 </tr>
                                 </tbody>

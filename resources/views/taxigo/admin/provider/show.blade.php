@@ -10,7 +10,7 @@
                             {{ trans('global.view') }}
                             {{ trans('cruds.user.title_singular') }}:
                             {{ trans('cruds.user.fields.id') }}
-                            {{ $provider->id }}
+                            {{ $user->id }}
                         </h4>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                         {{ trans('cruds.user.fields.id') }}
                                     </th>
                                     <td>
-                                        {{ $provider->id }}
+                                        {{ $user->id }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -54,7 +54,7 @@
                                         {{ trans('cruds.user.fields.name') }}
                                     </th>
                                     <td>
-                                        {{ $provider->name }}
+                                        {{ $user->name }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,7 +62,7 @@
                                         {{ trans('cruds.user.fields.mobile') }}
                                     </th>
                                     <td>
-                                        {{ $provider->mobile }}
+                                        {{ $user->mobile }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -102,7 +102,7 @@
                                         Status
                                     </th>
                                     <td>
-                                        {{ $provider->provider_status_label }}
+                                        {{ $user->provider_status_label }}
                                     </td>
                                 </tr>
                                 </tbody>

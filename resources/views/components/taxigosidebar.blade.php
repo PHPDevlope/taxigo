@@ -28,6 +28,12 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route('admin.dispatcher-panels') }}" class="{{ request()->is("admin/dispatcher-panels*") ? "nav-link active" : "nav-link"}}">
+                        <i class="fa-fw c-sidebar-nav-icon fas fa-building"></i>
+                        Dispatcher Panel
+                    </a>
+                </li>
                 @can('company_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/company*") ? "nav-link active" : "nav-link" }}"

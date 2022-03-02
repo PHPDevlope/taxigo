@@ -24,17 +24,20 @@ class ProviderController extends Controller
         return view('taxigo.admin.provider.create');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
         abort_if(Gate::denies('provider_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $user = User::find($id);
 
         return view('taxigo.admin.provider.edit', compact('user'));
     }
 
-    public function show(User $user)
+    public function show($id)
     {
         abort_if(Gate::denies('provider_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $user = User::find($id);
         $user->load('roles');
 
         return view('taxigo.admin.provider.show', compact('user'));

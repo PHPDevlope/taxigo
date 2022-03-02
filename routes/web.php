@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\UserAlertController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserRatingController;
 use App\Http\Controllers\Auth\UserProfileController;
+use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -133,6 +134,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('dispute-panel', [HomeController::class, 'disputePanel'])->name('dispute-panel');
     Route::get('dispute-panel/dispute-types', [HomeController::class, 'disputePanel'])->name('dispute-panel.dispute-types');
     Route::get('dispute-panel/dispute-requests', [HomeController::class, 'disputePanel'])->name('dispute-panel.dispute-requests');
+
+    Route::get('dispatcher-panels',[HomeController::class, 'dispatcherPanel'])->name('dispatcher-panels');
 
     Route::get('company', [HomeController::class, 'company'])->name('company');
     Route::get('company/companies', [HomeController::class, 'company'])->name('company/companies');

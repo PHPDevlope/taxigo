@@ -9,6 +9,8 @@
                         <h4 class="h4 mb-0 ls-tight">
                             {{ trans('global.edit') }}
                             {{ trans('cruds.fleetOwner.title_singular') }}
+                            {{ trans('cruds.user.fields.id') }}
+                            {{ $user->id }}
                         </h4>
                     </div>
                 </div>
