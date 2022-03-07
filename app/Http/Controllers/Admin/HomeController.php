@@ -11,7 +11,7 @@ class HomeController
 
     public function dispatcherPanel()
     {
-        return view('taxigo.admin.dispatcher-panel');
+        return view('taxigo.dispatcher-panel');
     }
 
     public function roleManagement()

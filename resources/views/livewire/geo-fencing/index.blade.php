@@ -186,7 +186,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="10">No entries found.</td>
+                                <td colspan="19">No entries found.</td>
                             </tr>
                         @endforelse
                     </tbody>

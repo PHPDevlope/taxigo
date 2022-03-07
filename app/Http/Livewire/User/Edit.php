@@ -63,7 +63,7 @@ class Edit extends Component
         $this->user->roles()->sync($this->roles);
         $this->syncMedia();
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users');
     }
 
     protected function syncMedia(): void
