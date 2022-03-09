@@ -21,20 +21,20 @@ class DocumentController extends Controller
     {
         abort_if(Gate::denies('document_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.document.create');
+        return view('taxigo.admin.document.create');
     }
 
     public function edit(Document $document)
     {
         abort_if(Gate::denies('document_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.document.edit', compact('document'));
+        return view('taxigo.admin.document.edit', compact('document'));
     }
 
     public function show(Document $document)
     {
         abort_if(Gate::denies('document_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.document.show', compact('document'));
+        return view('taxigo.admin.document.show', compact('document'));
     }
 }

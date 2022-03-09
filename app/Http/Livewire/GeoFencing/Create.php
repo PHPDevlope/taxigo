@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->geoFencing->save();
 
-        return redirect()->route('admin.geo-fencings.index');
+        return redirect()->route('admin.service.geo-fencings');
     }
 
     protected function rules(): array

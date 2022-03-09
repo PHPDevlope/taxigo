@@ -25,7 +25,7 @@ class Create extends Component
 
         $this->mSetting->save();
 
-        return redirect()->route('admin.m-settings.index');
+        return redirect()->route('admin.m-settings');
     }
 
     protected function rules(): array

@@ -67,7 +67,7 @@ class Edit extends Component
         $this->serviceType->geoFencing()->sync($this->geo_fencing);
         $this->syncMedia();
 
-        return redirect()->route('admin.service-types.index');
+        return redirect()->route('admin.service.service-types');
     }
 
     protected function syncMedia(): void

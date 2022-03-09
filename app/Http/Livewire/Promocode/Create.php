@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->promocode->save();
 
-        return redirect()->route('admin.promocodes.index');
+        return redirect()->route('admin.promocode');
     }
 
     protected function rules(): array

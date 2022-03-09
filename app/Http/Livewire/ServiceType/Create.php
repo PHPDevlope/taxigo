@@ -56,7 +56,7 @@ class Create extends Component
         $this->serviceType->geoFencing()->sync($this->geo_fencing);
         $this->syncMedia();
 
-        return redirect()->route('admin.service-types.index');
+        return redirect()->route('admin.service-types');
     }
 
     protected function syncMedia(): void

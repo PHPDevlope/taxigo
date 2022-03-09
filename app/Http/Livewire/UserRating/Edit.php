@@ -30,7 +30,7 @@ class Edit extends Component
 
         $this->userRating->save();
 
-        return redirect()->route('admin.user-ratings.index');
+        return redirect()->route('admin.ratings-reviews.user-ratings');
     }
 
     protected function rules(): array

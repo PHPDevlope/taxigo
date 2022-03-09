@@ -30,7 +30,7 @@ class Create extends Component
 
         $this->providerRating->save();
 
-        return redirect()->route('admin.provider-ratings.index');
+        return redirect()->route('admin.ratings-reviews.provider-ratings');
     }
 
     protected function rules(): array

@@ -21,14 +21,14 @@ class UserRatingController extends Controller
     {
         abort_if(Gate::denies('user_rating_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user-rating.create');
+        return view('taxigo.admin.user-rating.create');
     }
 
     public function edit(UserRating $userRating)
     {
         abort_if(Gate::denies('user_rating_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user-rating.edit', compact('userRating'));
+        return view('taxigo.admin.user-rating.edit', compact('userRating'));
     }
 
     public function show(UserRating $userRating)
@@ -37,6 +37,6 @@ class UserRatingController extends Controller
 
         $userRating->load('request', 'userName', 'providerName');
 
-        return view('admin.user-rating.show', compact('userRating'));
+        return view('taxigo.admin.user-rating.show', compact('userRating'));
     }
 }

@@ -35,7 +35,7 @@
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}
         </button>
-        <a data-bs-dismiss="offcanvas" class="btn d-inline-flex btn-sm btn-secondary">
+        <a href="{{ route('admin.user-alert') }}" class="btn d-inline-flex btn-sm btn-secondary">
             {{ trans('global.cancel') }}
         </a>
     </div>

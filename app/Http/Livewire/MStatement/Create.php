@@ -50,7 +50,7 @@ class Create extends Component
         $this->mStatement->save();
         $this->syncMedia();
 
-        return redirect()->route('admin.m-statements.index');
+        return redirect()->route('admin.statements');
     }
 
     protected function syncMedia(): void

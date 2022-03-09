@@ -28,7 +28,7 @@ class Edit extends Component
 
         $this->document->save();
 
-        return redirect()->route('admin.documents.index');
+        return redirect()->route('admin.document');
     }
 
     protected function rules(): array

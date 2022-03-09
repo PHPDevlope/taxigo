@@ -48,54 +48,6 @@
                                 @include('components.table.sort', ['field' => 'provider_name.name'])
                             </th>
                             <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.total_distance') }}
-                                @include('components.table.sort', ['field' => 'total_distance'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.ride_start_time') }}
-                                @include('components.table.sort', ['field' => 'ride_start_time'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.ride_end_time') }}
-                                @include('components.table.sort', ['field' => 'ride_end_time'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.otp') }}
-                                @include('components.table.sort', ['field' => 'otp'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.pickup_address') }}
-                                @include('components.table.sort', ['field' => 'pickup_address'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.drop_address') }}
-                                @include('components.table.sort', ['field' => 'drop_address'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.base_price') }}
-                                @include('components.table.sort', ['field' => 'base_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.distance_price') }}
-                                @include('components.table.sort', ['field' => 'distance_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.discount_price') }}
-                                @include('components.table.sort', ['field' => 'discount_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.eta_discount_price') }}
-                                @include('components.table.sort', ['field' => 'eta_discount_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.tax_price') }}
-                                @include('components.table.sort', ['field' => 'tax_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.surge_price') }}
-                                @include('components.table.sort', ['field' => 'surge_price'])
-                            </th>
-                            <th scope="col">
                                 {{ trans('cruds.requestHistory.fields.total_amount') }}
                                 @include('components.table.sort', ['field' => 'total_amount'])
                             </th>
@@ -106,18 +58,6 @@
                             <th scope="col">
                                 {{ trans('cruds.requestHistory.fields.coupon') }}
                                 @include('components.table.sort', ['field' => 'coupon.promocode'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.paid_amount') }}
-                                @include('components.table.sort', ['field' => 'paid_amount'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.provider_earnings') }}
-                                @include('components.table.sort', ['field' => 'provider_earnings'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.requestHistory.fields.provider_admin_commission') }}
-                                @include('components.table.sort', ['field' => 'provider_admin_commission'])
                             </th>
                             <th scope="col">
                                 {{ trans('cruds.requestHistory.fields.ride_status') }}
@@ -153,42 +93,6 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $requestHistory->total_distance }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->ride_start_time }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->ride_end_time }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->otp }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->pickup_address }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->drop_address }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->base_price }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->distance_price }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->discount_price }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->eta_discount_price }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->tax_price }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->surge_price }}
-                                </td>
-                                <td>
                                     {{ $requestHistory->total_amount }}
                                 </td>
                                 <td>
@@ -201,15 +105,6 @@
                                             {{ $requestHistory->coupon->promocode ?? '' }}
                                         </span>
                                     @endif
-                                </td>
-                                <td>
-                                    {{ $requestHistory->paid_amount }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->provider_earnings }}
-                                </td>
-                                <td>
-                                    {{ $requestHistory->provider_admin_commission }}
                                 </td>
                                 <td>
                                     {{ $requestHistory->ride_status_label }}

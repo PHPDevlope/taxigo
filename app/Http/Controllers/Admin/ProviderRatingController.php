@@ -21,14 +21,14 @@ class ProviderRatingController extends Controller
     {
         abort_if(Gate::denies('provider_rating_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.provider-rating.create');
+        return view('taxigo.admin.provider-rating.create');
     }
 
     public function edit(ProviderRating $providerRating)
     {
         abort_if(Gate::denies('provider_rating_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.provider-rating.edit', compact('providerRating'));
+        return view('taxigo.admin.provider-rating.edit', compact('providerRating'));
     }
 
     public function show(ProviderRating $providerRating)
@@ -37,6 +37,6 @@ class ProviderRatingController extends Controller
 
         $providerRating->load('request', 'userName', 'providerName');
 
-        return view('admin.provider-rating.show', compact('providerRating'));
+        return view('taxigo.admin.provider-rating.show', compact('providerRating'));
     }
 }

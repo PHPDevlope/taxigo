@@ -44,66 +44,6 @@
                                 @include('components.table.sort', ['field' => 'city_name'])
                             </th>
                             <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.distance') }}
-                                @include('components.table.sort', ['field' => 'distance'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.distance_price') }}
-                                @include('components.table.sort', ['field' => 'distance_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.city_limits') }}
-                                @include('components.table.sort', ['field' => 'city_limits'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.minute_price') }}
-                                @include('components.table.sort', ['field' => 'minute_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.pricing_logic') }}
-                                @include('components.table.sort', ['field' => 'pricing_logic'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.hour_price') }}
-                                @include('components.table.sort', ['field' => 'hour_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.base_price') }}
-                                @include('components.table.sort', ['field' => 'base_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.base_distance') }}
-                                @include('components.table.sort', ['field' => 'base_distance'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.unit_time_pricing') }}
-                                @include('components.table.sort', ['field' => 'unit_time_pricing'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.unit_distance_price') }}
-                                @include('components.table.sort', ['field' => 'unit_distance_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.seat_capacity') }}
-                                @include('components.table.sort', ['field' => 'seat_capacity'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.waive_off_minutes') }}
-                                @include('components.table.sort', ['field' => 'waive_off_minutes'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.per_minute_fare') }}
-                                @include('components.table.sort', ['field' => 'per_minute_fare'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.night_fare') }}
-                                @include('components.table.sort', ['field' => 'night_fare'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.geoFencing.fields.status') }}
-                                @include('components.table.sort', ['field' => 'status'])
-                            </th>
-                            <th scope="col">
                             </th>
                         </tr>
                     </thead>
@@ -118,51 +58,6 @@
                                 </td>
                                 <td>
                                     {{ $geoFencing->city_name }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->distance }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->distance_price }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->city_limits }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->minute_price }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->pricing_logic_label }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->hour_price }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->base_price }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->base_distance }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->unit_time_pricing }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->unit_distance_price }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->seat_capacity }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->waive_off_minutes }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->per_minute_fare }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->night_fare }}
-                                </td>
-                                <td>
-                                    {{ $geoFencing->status_label }}
                                 </td>
                                 <td class="text-end">
                                     <div class="flex justify-end">

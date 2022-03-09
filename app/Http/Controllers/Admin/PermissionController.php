@@ -21,20 +21,20 @@ class PermissionController extends Controller
     {
         abort_if(Gate::denies('permission_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.permission.create');
+        return view('taxigo.admin.permission.create');
     }
 
     public function edit(Permission $permission)
     {
         abort_if(Gate::denies('permission_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.permission.edit', compact('permission'));
+        return view('taxigo.admin.permission.edit', compact('permission'));
     }
 
     public function show(Permission $permission)
     {
         abort_if(Gate::denies('permission_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.permission.show', compact('permission'));
+        return view('taxigo.admin.permission.show', compact('permission'));
     }
 }

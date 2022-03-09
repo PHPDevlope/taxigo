@@ -21,20 +21,20 @@ class PeakTimeController extends Controller
     {
         abort_if(Gate::denies('peak_time_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.peak-time.create');
+        return view('taxigo.admin.peak-time.create');
     }
 
     public function edit(PeakTime $peakTime)
     {
         abort_if(Gate::denies('peak_time_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.peak-time.edit', compact('peakTime'));
+        return view('taxigo.admin.peak-time.edit', compact('peakTime'));
     }
 
     public function show(PeakTime $peakTime)
     {
         abort_if(Gate::denies('peak_time_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.peak-time.show', compact('peakTime'));
+        return view('taxigo.admin.peak-time.show', compact('peakTime'));
     }
 }

@@ -32,7 +32,7 @@ class Create extends Component
         $this->userAlert->save();
         $this->userAlert->users()->sync($this->users);
 
-        return redirect()->route('admin.user-alerts.index');
+        return redirect()->route('admin.user-alert');
     }
 
     protected function rules(): array

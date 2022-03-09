@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->peakTime->save();
 
-        return redirect()->route('admin.peak-times.index');
+        return redirect()->route('admin.service.peak-times');
     }
 
     protected function rules(): array

@@ -21,20 +21,20 @@ class ProvidersettlementController extends Controller
     {
         abort_if(Gate::denies('providersettlement_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.providersettlement.create');
+        return view('taxigo.admin.providersettlement.create');
     }
 
     public function edit(Providersettlement $providersettlement)
     {
         abort_if(Gate::denies('providersettlement_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.providersettlement.edit', compact('providersettlement'));
+        return view('taxigo.admin.providersettlement.edit', compact('providersettlement'));
     }
 
     public function show(Providersettlement $providersettlement)
     {
         abort_if(Gate::denies('providersettlement_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.providersettlement.show', compact('providersettlement'));
+        return view('taxigo.admin.providersettlement.show', compact('providersettlement'));
     }
 }

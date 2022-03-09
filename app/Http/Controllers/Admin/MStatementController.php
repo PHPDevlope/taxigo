@@ -21,14 +21,14 @@ class MStatementController extends Controller
     {
         abort_if(Gate::denies('m_statement_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.m-statement.create');
+        return view('taxigo.admin.m-statement.create');
     }
 
     public function edit(MStatement $mStatement)
     {
         abort_if(Gate::denies('m_statement_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.m-statement.edit', compact('mStatement'));
+        return view('taxigo.admin.m-statement.edit', compact('mStatement'));
     }
 
     public function show(MStatement $mStatement)
@@ -37,7 +37,7 @@ class MStatementController extends Controller
 
         $mStatement->load('user', 'document');
 
-        return view('admin.m-statement.show', compact('mStatement'));
+        return view('taxigo.admin.m-statement.show', compact('mStatement'));
     }
 
     public function storeMedia(Request $request)

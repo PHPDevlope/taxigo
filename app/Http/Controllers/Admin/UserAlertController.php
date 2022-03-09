@@ -21,14 +21,14 @@ class UserAlertController extends Controller
     {
         abort_if(Gate::denies('user_alert_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user-alert.create');
+        return view('taxigo.admin.user-alert.create');
     }
 
     public function edit(UserAlert $userAlert)
     {
         abort_if(Gate::denies('user_alert_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.user-alert.edit', compact('userAlert'));
+        return view('taxigo.admin.user-alert.edit', compact('userAlert'));
     }
 
     public function show(UserAlert $userAlert)
@@ -37,7 +37,7 @@ class UserAlertController extends Controller
 
         $userAlert->load('users');
 
-        return view('admin.user-alert.show', compact('userAlert'));
+        return view('taxigo.admin.user-alert.show', compact('userAlert'));
     }
 
     public function seen()

@@ -19,33 +19,37 @@
     </header>
     <main class="py-6 bg-surface-secondary">
         <div class="container-fluid">
-            <div class="card-body">
-                <div class="pt-3">
-                    <table class="table table-view">
-                        <tbody class="bg-white">
-                            <tr>
-                                <th>
-                                    {{ trans('cruds.permission.fields.id') }}
-                                </th>
-                                <td>
-                                    {{ $permission->id }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    {{ trans('cruds.permission.fields.title') }}
-                                </th>
-                                <td>
-                                    {{ $permission->title }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="form-group">
-                    <a href="{{ route('admin.permissions') }}" class="btn btn-secondary d-inline-flex btn-sm">
-                        {{ trans('global.back') }}
-                    </a>
+            <div class="row">
+                <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
+                    <div class="card-body">
+                        <div class="pt-3">
+                            <table class="table table-view">
+                                <tbody class="bg-white">
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.permission.fields.id') }}
+                                        </th>
+                                        <td>
+                                            {{ $permission->id }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.permission.fields.title') }}
+                                        </th>
+                                        <td>
+                                            {{ $permission->title }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group mt-4">
+                            <a href="{{ route('admin.role-management.permissions') }}" class="btn btn-secondary d-inline-flex btn-sm">
+                                {{ trans('global.back') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

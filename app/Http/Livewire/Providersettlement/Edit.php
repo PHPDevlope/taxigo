@@ -28,7 +28,7 @@ class Edit extends Component
 
         $this->providersettlement->save();
 
-        return redirect()->route('admin.providersettlements.index');
+        return redirect()->route('admin.provider-settlement');
     }
 
     protected function rules(): array

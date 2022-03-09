@@ -30,7 +30,7 @@ class Create extends Component
 
         $this->requestHistory->save();
 
-        return redirect()->route('admin.request-histories.index');
+        return redirect()->route('admin.request-history');
     }
 
     protected function rules(): array

@@ -1,21 +1,34 @@
-@extends('layouts.admin')
+@extends('taxigo.layouts.admin')
 @section('content')
-<div class="row">
-    <div class="card bg-blueGray-100">
-        <div class="card-header">
-            <div class="card-header-container">
-                <h6 class="card-title">
-                    {{ trans('global.edit') }}
-                    {{ trans('cruds.serviceType.title_singular') }}:
-                    {{ trans('cruds.serviceType.fields.id') }}
-                    {{ $serviceType->id }}
-                </h6>
+
+    <header class="bg-surface-primary border-bottom pt-6 pb-6">
+        <div class="container-fluid">
+            <div class="mb-npx">
+                <div class="row align-nav-item">
+                    <div class="col-6 mb-4 mb-sm-0">
+                        <!-- Title -->
+                        <h4 class="h4 mb-0 ls-tight">
+                            {{ trans('global.edit') }}
+                            {{ trans('cruds.serviceType.title_singular') }}:
+                            {{ trans('cruds.serviceType.fields.id') }}
+                            {{ $serviceType->id }}
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card-body">
-            @livewire('service-type.edit', [$serviceType])
+    </header>
+    <main class="py-6 bg-surface-secondary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
+                    <div class="card-body">
+                        <div>
+                            @livewire('service-type.edit', [$serviceType])
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </main>
 @endsection

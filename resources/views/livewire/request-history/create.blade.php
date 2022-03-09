@@ -220,7 +220,7 @@
         <button class="btn btn-dark btn-sm mr-2" type="submit">
             {{ trans('global.save') }}
         </button>
-        <a href="{{ route('admin.dispatcher-panels') }}" class="btn btn-secondary btn-sm">
+        <a data-bs-dismiss="offcanvas" class="btn btn-secondary btn-sm">
             {{ trans('global.cancel') }}
         </a>
     </div>

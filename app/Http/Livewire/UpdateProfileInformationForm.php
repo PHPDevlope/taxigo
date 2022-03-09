@@ -50,6 +50,7 @@ class UpdateProfileInformationForm extends Component
                 'max:255',
                 'unique:users,email,' . auth()->id(),
             ],
+            'state.mobile' => ['required', 'string', 'max:255'],
         ];
     }
 }

@@ -53,7 +53,7 @@
                     </table>
                 </div>
                 <div class="form-group mt-4">
-                    <a href="{{ route('admin.roles.index') }}" class="btn btn-secondary btn-sm d-inline-flex mx-1">
+                    <a href="{{ route('admin.role-management.roles') }}" class="btn btn-secondary btn-sm d-inline-flex mx-1">
                         {{ trans('global.back') }}
                     </a>
                 </div>

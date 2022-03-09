@@ -21,20 +21,20 @@ class StaticPageController extends Controller
     {
         abort_if(Gate::denies('static_page_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.static-page.create');
+        return view('taxigo.admin.static-page.create');
     }
 
     public function edit(StaticPage $staticPage)
     {
         abort_if(Gate::denies('static_page_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.static-page.edit', compact('staticPage'));
+        return view('taxigo.admin.static-page.edit', compact('staticPage'));
     }
 
     public function show(StaticPage $staticPage)
     {
         abort_if(Gate::denies('static_page_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.static-page.show', compact('staticPage'));
+        return view('taxigo.admin.static-page.show', compact('staticPage'));
     }
 }

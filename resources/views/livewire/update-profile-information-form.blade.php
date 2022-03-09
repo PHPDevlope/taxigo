@@ -22,8 +22,8 @@
 
             <div class="form-group py-2">
                 <label class="form-label" for="phone">Phone</label>
-                <input class="form-control" id="phone" type="text" wire:model.defer="state.phone" autocomplete="number">
-                @error('state.phone')
+                <input class="form-control" id="phone" type="text" wire:model.defer="state.mobile" autocomplete="number">
+                @error('state.mobile')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>

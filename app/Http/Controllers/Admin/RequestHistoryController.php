@@ -21,14 +21,14 @@ class RequestHistoryController extends Controller
     {
         abort_if(Gate::denies('request_history_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.request-history.create');
+        return view('taxigo.admin.request-history.create');
     }
 
     public function edit(RequestHistory $requestHistory)
     {
         abort_if(Gate::denies('request_history_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.request-history.edit', compact('requestHistory'));
+        return view('taxigo.admin.request-history.edit', compact('requestHistory'));
     }
 
     public function show(RequestHistory $requestHistory)
@@ -37,6 +37,6 @@ class RequestHistoryController extends Controller
 
         $requestHistory->load('userName', 'providerName', 'coupon');
 
-        return view('admin.request-history.show', compact('requestHistory'));
+        return view('taxigo.admin.request-history.show', compact('requestHistory'));
     }
 }

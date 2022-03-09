@@ -21,20 +21,20 @@ class GeoFencingController extends Controller
     {
         abort_if(Gate::denies('geo_fencing_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.geo-fencing.create');
+        return view('taxigo.admin.geo-fencing.create');
     }
 
     public function edit(GeoFencing $geoFencing)
     {
         abort_if(Gate::denies('geo_fencing_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.geo-fencing.edit', compact('geoFencing'));
+        return view('taxigo.admin.geo-fencing.edit', compact('geoFencing'));
     }
 
     public function show(GeoFencing $geoFencing)
     {
         abort_if(Gate::denies('geo_fencing_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.geo-fencing.show', compact('geoFencing'));
+        return view('taxigo.admin.geo-fencing.show', compact('geoFencing'));
     }
 }

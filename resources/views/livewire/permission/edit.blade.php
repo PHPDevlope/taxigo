@@ -1,5 +1,5 @@
 <form wire:submit.prevent="submit" class="pt-3">
-
+{{--    {{ dd($permission->id) }}--}}
     <div class="form-group mt-2 {{ $errors->has('permission.title') ? 'invalid' : '' }}">
         <label class="form-label required" for="title">{{ trans('cruds.permission.fields.title') }}</label>
         <input class="form-control" type="text" name="title" id="title" required wire:model.defer="permission.title">
@@ -15,7 +15,7 @@
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}
         </button>
-        <a data-bs-dismiss="offcanvas" class="btn d-inline-flex btn-sm btn-secondary">
+        <a href="{{ route('admin.role-management.permissions') }}" class="btn d-inline-flex btn-sm btn-secondary">
             {{ trans('global.cancel') }}
         </a>
     </div>

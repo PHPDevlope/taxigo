@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->staticPage->save();
 
-        return redirect()->route('admin.static-pages.index');
+        return redirect()->route('admin.static-page');
     }
 
     protected function rules(): array

@@ -49,7 +49,7 @@ class Create extends Component
         $this->company->save();
         $this->syncMedia();
 
-        return redirect()->route('admin.companies.index');
+        return redirect()->route('admin.company');
     }
 
     protected function syncMedia(): void

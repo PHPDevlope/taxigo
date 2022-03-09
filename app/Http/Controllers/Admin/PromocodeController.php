@@ -21,20 +21,20 @@ class PromocodeController extends Controller
     {
         abort_if(Gate::denies('promocode_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.promocode.create');
+        return view('taxigo.admin.promocode.create');
     }
 
     public function edit(Promocode $promocode)
     {
         abort_if(Gate::denies('promocode_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.promocode.edit', compact('promocode'));
+        return view('taxigo.admin.promocode.edit', compact('promocode'));
     }
 
     public function show(Promocode $promocode)
     {
         abort_if(Gate::denies('promocode_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.promocode.show', compact('promocode'));
+        return view('taxigo.admin.promocode.show', compact('promocode'));
     }
 }

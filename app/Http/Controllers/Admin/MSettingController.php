@@ -21,20 +21,20 @@ class MSettingController extends Controller
     {
         abort_if(Gate::denies('m_setting_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.m-setting.create');
+        return view('taxigo.admin.m-setting.create');
     }
 
     public function edit(MSetting $mSetting)
     {
         abort_if(Gate::denies('m_setting_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.m-setting.edit', compact('mSetting'));
+        return view('taxigo.admin.m-setting.edit', compact('mSetting'));
     }
 
     public function show(MSetting $mSetting)
     {
         abort_if(Gate::denies('m_setting_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.m-setting.show', compact('mSetting'));
+        return view('taxigo.admin.m-setting.show', compact('mSetting'));
     }
 }

@@ -21,14 +21,14 @@ class ServiceTypeController extends Controller
     {
         abort_if(Gate::denies('service_type_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.service-type.create');
+        return view('taxigo.admin.service-type.create');
     }
 
     public function edit(ServiceType $serviceType)
     {
         abort_if(Gate::denies('service_type_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.service-type.edit', compact('serviceType'));
+        return view('taxigo.admin.service-type.edit', compact('serviceType'));
     }
 
     public function show(ServiceType $serviceType)
@@ -37,7 +37,7 @@ class ServiceTypeController extends Controller
 
         $serviceType->load('peakTime', 'geoFencing');
 
-        return view('admin.service-type.show', compact('serviceType'));
+        return view('taxigo.admin.service-type.show', compact('serviceType'));
     }
 
     public function storeMedia(Request $request)

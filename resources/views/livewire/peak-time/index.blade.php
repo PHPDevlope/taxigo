@@ -48,14 +48,6 @@
                                 @include('components.table.sort', ['field' => 'to'])
                             </th>
                             <th scope="col">
-                                {{ trans('cruds.peakTime.fields.peak_price') }}
-                                @include('components.table.sort', ['field' => 'peak_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.peakTime.fields.status') }}
-                                @include('components.table.sort', ['field' => 'status'])
-                            </th>
-                            <th scope="col">
                             </th>
                         </tr>
                     </thead>
@@ -73,12 +65,6 @@
                                 </td>
                                 <td>
                                     {{ $peakTime->to }}
-                                </td>
-                                <td>
-                                    {{ $peakTime->peak_price }}
-                                </td>
-                                <td>
-                                    {{ $peakTime->status_label }}
                                 </td>
                                 <td class="text-end">
                                     <div class="flex justify-end">

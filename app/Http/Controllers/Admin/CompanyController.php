@@ -21,14 +21,14 @@ class CompanyController extends Controller
     {
         abort_if(Gate::denies('company_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.company.create');
+        return view('taxigo.admin.company.create');
     }
 
     public function edit(Company $company)
     {
         abort_if(Gate::denies('company_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.company.edit', compact('company'));
+        return view('taxigo.admin.company.edit', compact('company'));
     }
 
     public function show(Company $company)
@@ -37,7 +37,7 @@ class CompanyController extends Controller
 
         $company->load('user');
 
-        return view('admin.company.show', compact('company'));
+        return view('taxigo.admin.company.show', compact('company'));
     }
 
     public function storeMedia(Request $request)
