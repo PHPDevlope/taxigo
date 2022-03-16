@@ -79,7 +79,7 @@
                                 <td>
                                     @if($requestHistory->userName)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $requestHistory->userName->name ?? '' }}
                                         </span>
                                     @endif
@@ -87,7 +87,7 @@
                                 <td>
                                     @if($requestHistory->providerName)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $requestHistory->providerName->name ?? '' }}
                                         </span>
                                     @endif
@@ -101,7 +101,7 @@
                                 <td>
                                     @if($requestHistory->coupon)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $requestHistory->coupon->promocode ?? '' }}
                                         </span>
                                     @endif

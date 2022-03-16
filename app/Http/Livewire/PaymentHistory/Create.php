@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->paymentHistory->save();
 
-        return redirect()->route('admin.payment-histories.index');
+        return redirect()->route('admin.payment-details.payment-histories');
     }
 
     protected function rules(): array

@@ -1,4 +1,5 @@
 <div>
+
     @if($paginator->hasPages())
         <div class="d-flex align-items-center">
             <div class="text-sm">
@@ -19,12 +20,13 @@
                     </li>
                     {{-- Pagination Elements --}}
                     @foreach($elements as $element)
+
                         @if(is_array($element))
                             @foreach($element as $page => $url)
                                 <li class="page-item" wire:key="paginator-page{{ $page }}">
                                     @if($page == $paginator->currentPage())
                                         <span aria-current="page">
-                                            <span class="page-link">{{ $page }}</span>
+                                            <span class="page-link text-danger">{{ $page }}</span>
                                         </span>
                                     @else
                                         <button wire:click="gotoPage({{ $page }})" class="page-link" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
@@ -45,6 +47,7 @@
                                 {!! __('pagination.next') !!}
                             </span>
                         @endif
+
                     </li>
                 </ul>
             </nav>

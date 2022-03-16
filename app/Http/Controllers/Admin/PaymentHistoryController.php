@@ -21,20 +21,20 @@ class PaymentHistoryController extends Controller
     {
         abort_if(Gate::denies('payment_history_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.payment-history.create');
+        return view('taxigo.admin.payment-history.create');
     }
 
     public function edit(PaymentHistory $paymentHistory)
     {
         abort_if(Gate::denies('payment_history_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.payment-history.edit', compact('paymentHistory'));
+        return view('taxigo.admin.payment-history.edit', compact('paymentHistory'));
     }
 
     public function show(PaymentHistory $paymentHistory)
     {
         abort_if(Gate::denies('payment_history_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.payment-history.show', compact('paymentHistory'));
+        return view('taxigo.admin.payment-history.show', compact('paymentHistory'));
     }
 }

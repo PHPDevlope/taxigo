@@ -52,9 +52,6 @@
                             @include('components.table.sort', ['field' => 'mobile'])
                         </th>
                         <th scope="col">
-                            {{ trans('cruds.user.fields.profile') }}
-                        </th>
-                        <th scope="col">
                         </th>
                     </tr>
                     </thead>
@@ -73,9 +70,9 @@
                             <td>
                                 @if($user->company)
                                     <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
-                                            {{ $user->company->name ?? '' }}
-                                        </span>
+                                        <i class="bi bi-success"></i>
+                                        {{ $user->company->name ?? '' }}
+                                    </span>
                                 @endif
                             </td>
                             <td>
@@ -83,13 +80,6 @@
                             </td>
                             <td>
                                 {{ $user->mobile }}
-                            </td>
-                            <td>
-                                @foreach($user->profile as $key => $entry)
-                                    <a class="link-photo" href="{{ $entry['url'] }}">
-                                        <img src="{{ $entry['thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
-                                    </a>
-                                @endforeach
                             </td>
                             <td class="text-end">
                                 <div class="flex justify-end">

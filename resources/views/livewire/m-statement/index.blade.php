@@ -65,7 +65,7 @@
                                 <td>
                                     @if($mStatement->user)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $mStatement->user->name ?? '' }}
                                         </span>
                                     @endif
@@ -73,7 +73,7 @@
                                 <td>
                                     @if($mStatement->document)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $mStatement->document->document_name ?? '' }}
                                         </span>
                                     @endif

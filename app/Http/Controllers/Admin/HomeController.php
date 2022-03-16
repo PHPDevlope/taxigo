@@ -89,6 +89,11 @@ class HomeController
         return view('taxigo.m-setting');
     }
 
+    public function siteSetting()
+    {
+        return view('taxigo.site-setting');
+    }
+
     public function appSetting()
     {
         return view('taxigo.app-setting');

@@ -121,7 +121,6 @@
                     </li>
                 @endcan
 
-
                 <span class="menu-label">Details</span>
                 @can('ratings_review_access')
                     <li class="nav-item">
@@ -194,10 +193,18 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a class="{{ request()->is("admin/site-settings*") ? "nav-link active" : "nav-link" }}"
+                       href="{{ route("admin.site-settings.app-generals") }}">
+                        <i class="fa-fw c-sidebar-nav-icon fas fa-mobile">
+                        </i>
+                        Site Setting
+                    </a>
+                </li>
                 @can('app_setting_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/app-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.app-settings") }}">
+                           href="{{ route("admin.app-settings.app-generals") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-mobile">
                             </i>
                             {{ trans('cruds.appSetting.title') }}
@@ -207,7 +214,7 @@
                 @can('payment_setting_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/payment-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.payment-settings") }}">
+                           href="{{ route("admin.payment-settings.payment-modes") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-money-bill">
                             </i>
                             {{ trans('cruds.paymentSetting.title') }}

@@ -1,5 +1,11 @@
 <form wire:submit.prevent="submit" class="pt-3">
 
+    <style>
+        div#offcanvasMain {
+            width: 700px;
+        }
+    </style>
+
     <div class="form-group mt-2 {{ $errors->has('staticPage.page_name') ? 'invalid' : '' }}">
         <label class="form-label" for="page_name">{{ trans('cruds.staticPage.fields.page_name') }}</label>
         <input class="form-control" type="text" name="page_name" id="page_name" wire:model.defer="staticPage.page_name">
@@ -12,7 +18,8 @@
     </div>
     <div class="form-group mt-2 {{ $errors->has('staticPage.content') ? 'invalid' : '' }}">
         <label class="form-label" for="content">{{ trans('cruds.staticPage.fields.content') }}</label>
-        <textarea class="form-control" name="content" id="content" wire:model.defer="staticPage.content" rows="4"></textarea>
+{{--        <textarea class="form-control" name="content" id="content" wire:model.defer="staticPage.content" rows="4"></textarea>--}}
+        <x-ckeditor-textarea wire:model.debounce.9999999ms="staticPage.content" textdata="{!! $staticPage->content !!}"/>
         <div class="validation-message">
             {{ $errors->first('staticPage.content') }}
         </div>
@@ -22,7 +29,8 @@
     </div>
     <div class="form-group mt-2 {{ $errors->has('staticPage.data') ? 'invalid' : '' }}">
         <label class="form-label" for="data">{{ trans('cruds.staticPage.fields.data') }}</label>
-        <input class="form-control" type="text" name="data" id="data" wire:model.defer="staticPage.data">
+{{--        <input class="form-control" type="text" name="data" id="data" wire:model.defer="staticPage.data">--}}
+        <x-date-picker class="form-control" wire:model="staticPage.data" id="date" name="date" picker="date" />
         <div class="validation-message">
             {{ $errors->first('staticPage.data') }}
         </div>

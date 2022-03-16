@@ -66,12 +66,14 @@
                                     {{ $userAlert->message }}
                                 </td>
                                 <td>
-                                    {{ $userAlert->link }}
+                                    <a href="{{ $userAlert->link }}" target="_blank">
+                                        {{ $userAlert->link }}
+                                    </a>
                                 </td>
                                 <td>
                                     @foreach($userAlert->users as $key => $entry)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $entry->name }}
                                         </span>
                                     @endforeach

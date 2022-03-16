@@ -20,31 +20,34 @@
                 </div>
                 <ul class="nav nav-tabs mt-4 overflow-x border-0">
                     <li class="nav-item">
-                        <a class="nav-link active" >
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-user">
-                            </i>
-                            Payment Setting
+                        <a class="nav-link {{ request()->is("admin/payment-settings/payment-modes") ? "active" : "" }}" href="{{ route("admin.payment-settings.payment-modes") }}">
+                            Payment Modes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is("admin/payment-settings/pay-settings") ? "active" : "" }}" href="{{ route("admin.payment-settings.pay-settings") }}">
+                            Payment Settings
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
-{{--    <main class="py-6 bg-surface-secondary">--}}
-{{--        <div class="container-fluid">--}}
-{{--            @livewire('setting.index')--}}
-{{--        </div>--}}
-
-{{--        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasExampleLabel">--}}
-{{--            <div class="offcanvas-header">--}}
-{{--                <h5 class="offcanvas-title" id="Label">--}}
-{{--                    Add Setting--}}
-{{--                </h5>--}}
-{{--                <button type="button" class="btn-close text-reset text-xs" data-bs-dismiss="offcanvas" aria-label="Close"></button>--}}
-{{--            </div>--}}
-{{--            <div class="offcanvas-body pt-0">--}}
-{{--                @livewire('setting.create')--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </main>--}}
+    <main class="py-6 bg-surface-secondary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card bg-blueGray-100 col-xl-12 col-lg-12 col-md-12">
+                    <div class="card-body">
+                        <div>
+                            @if(request()->is("admin/payment-settings/payment-modes"))
+                                @livewire('payment-mode.edit')
+                            @elseif(request()->is("admin/payment-settings/pay-settings"))
+                                @livewire('pay-setting.edit')
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 @endsection

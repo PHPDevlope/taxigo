@@ -39,7 +39,6 @@
                             @include('components.table.sort', ['field' => 'id'])
                         </th>
                         <th scope="col">Fleet Name</th>
-                        <th scope="col">Joined At</th>
                         <th scope="col">
                             {{ trans('cruds.user.fields.name') }}
                             @include('components.table.sort', ['field' => 'name'])
@@ -48,10 +47,6 @@
                             {{ trans('cruds.user.fields.mobile') }}
                             @include('components.table.sort', ['field' => 'mobile'])
                         </th>
-                        <th scope="col">Total / Accepted / Cancelled</th>
-                        <th scope="col">Vehicle Type</th>
-                        <th scope="col">Vehicle Number</th>
-                        <th scope="col">Document / Service Type</th>
                         <th scope="col">
                             {{ trans('cruds.user.fields.provider_status') }}
                             @include('components.table.sort', ['field' => 'provider_status'])
@@ -73,25 +68,10 @@
 
                             </td>
                             <td>
-
-                            </td>
-                            <td>
                                 {{ $user->name }}
                             </td>
                             <td>
                                 {{ $user->mobile }}
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
                             </td>
                             <td>
                                 {{--                                    {{ $user->provider_status_label }}--}}

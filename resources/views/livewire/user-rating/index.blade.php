@@ -79,7 +79,7 @@
                             <td>
                                 @if($userRating->request)
                                     <span class="badge badge-lg badge-dot">
-                                        <i class="bi bi-success"></i>
+                                        <i class="bg-success"></i>
                                         {{ $userRating->request->total_distance ?? '' }}
                                     </span>
                                 @endif
@@ -87,7 +87,7 @@
                             <td>
                                 @if($userRating->userName)
                                     <span class="badge badge-lg badge-dot">
-                                        <i class="bi bi-success"></i>
+                                        <i class="bg-success"></i>
                                         {{ $userRating->userName->name ?? '' }}
                                     </span>
                                 @endif
@@ -95,13 +95,16 @@
                             <td>
                                 @if($userRating->providerName)
                                     <span class="badge badge-lg badge-dot">
-                                        <i class="bi bi-success"></i>
+                                        <i class="bg-success"></i>
                                         {{ $userRating->providerName->name ?? '' }}
                                     </span>
                                 @endif
                             </td>
                             <td>
                                 {{ $userRating->rating }}
+{{--                                @for($i = 1; $i <= $userRating->rating; $i++)--}}
+{{--                                    <p class="text-danger">★</p>--}}
+{{--                                @endfor--}}
                             </td>
                             <td>
                                 {{ $userRating->date_time }}

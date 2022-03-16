@@ -30,7 +30,6 @@ use App\Http\Controllers\Admin\UserAlertController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserRatingController;
 use App\Http\Controllers\Auth\UserProfileController;
-use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -115,7 +114,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('static-pages', StaticPageController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // App Setting
-    Route::resource('app-settings', AppSettingController::class, ['except' => ['store', 'update', 'destroy']]);
+//    Route::resource('app-settings', AppSettingController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // M Settings
     Route::resource('m-settings', MSettingController::class, ['except' => ['store', 'update', 'destroy']]);
@@ -125,7 +124,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('m-statements', MStatementController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Payment Settings
-    Route::resource('payment-settings', PaymentSettingController::class, ['except' => ['store', 'update', 'destroy']]);
+//    Route::resource('payment-settings', PaymentSettingController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Request History
     Route::resource('request-histories', RequestHistoryController::class, ['except' => ['store', 'update', 'destroy']]);
@@ -179,8 +178,29 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // SETTING
     Route::get('m-settings', [HomeController::class, 'setting'])->name('m-settings');
+
+    Route::get('site-settings', [HomeController::class, 'siteSetting'])->name('site-settings');
+    Route::get('site-settings/app-generals', [HomeController::class, 'siteSetting'])->name('site-settings.app-generals');
+    Route::get('site-settings/profile-links', [HomeController::class, 'siteSetting'])->name('site-settings.profile-links');
+    Route::get('site-settings/social-links', [HomeController::class, 'siteSetting'])->name('site-settings.social-links');
+    Route::get('site-settings/algorithms', [HomeController::class, 'siteSetting'])->name('site-settings.algorithms');
+    Route::get('site-settings/mail-configs', [HomeController::class, 'siteSetting'])->name('site-settings.mail-configs');
+    Route::get('site-settings/others', [HomeController::class, 'siteSetting'])->name('site-settings.others');
+
+
     Route::get('app-settings', [HomeController::class, 'appSetting'])->name('app-settings');
+    Route::get('app-settings/app-generals', [HomeController::class, 'appSetting'])->name('app-settings.app-generals');
+    Route::get('app-settings/profile-links', [HomeController::class, 'appSetting'])->name('app-settings.profile-links');
+    Route::get('app-settings/social-links', [HomeController::class, 'appSetting'])->name('app-settings.social-links');
+    Route::get('app-settings/algorithms', [HomeController::class, 'appSetting'])->name('app-settings.algorithms');
+    Route::get('app-settings/map-sms-configs', [HomeController::class, 'appSetting'])->name('app-settings.map-sms-configs');
+    Route::get('app-settings/mail-configs', [HomeController::class, 'appSetting'])->name('app-settings.mail-configs');
+    Route::get('app-settings/push-notifications', [HomeController::class, 'appSetting'])->name('app-settings.push-notifications');
+    Route::get('app-settings/others', [HomeController::class, 'appSetting'])->name('app-settings.others');
+
     Route::get('payment-settings', [HomeController::class, 'paymentSetting'])->name('payment-settings');
+    Route::get('payment-settings/payment-modes', [HomeController::class, 'paymentSetting'])->name('payment-settings.payment-modes');
+    Route::get('payment-settings/pay-settings', [HomeController::class, 'paymentSetting'])->name('payment-settings.pay-settings');
 
     // OTHER
     Route::get('static-page', [HomeController::class, 'staticPage'])->name('static-page');

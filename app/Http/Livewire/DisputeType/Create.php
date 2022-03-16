@@ -28,7 +28,7 @@ class Create extends Component
 
         $this->disputeType->save();
 
-        return redirect()->route('admin.dispute-types.index');
+        return redirect()->route('admin.dispute-panel.dispute-types');
     }
 
     protected function rules(): array
