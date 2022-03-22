@@ -204,7 +204,7 @@
                 @can('app_setting_access')
                     <li class="nav-item">
                         <a class="{{ request()->is("admin/app-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.app-settings.app-generals") }}">
+                           href="{{ route("admin.app-settings.map-sms-configs") }}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-mobile">
                             </i>
                             {{ trans('cruds.appSetting.title') }}

@@ -9,12 +9,12 @@
                     </div>
                     <div class="col-6 text-end">
                         <div class="mx-n1">
-                            <a data-bs-toggle="offcanvas" href="#offcanvasMain" class="btn d-inline-flex btn-sm btn-dark mx-1">
-                                <span class=" pe-2">
-                                    <i class="bi bi-plus"></i>
-                                </span>
-                                <span>Create</span>
-                            </a>
+{{--                            <a data-bs-toggle="offcanvas" href="#offcanvasMain" class="btn d-inline-flex btn-sm btn-dark mx-1">--}}
+{{--                                <span class=" pe-2">--}}
+{{--                                    <i class="bi bi-plus"></i>--}}
+{{--                                </span>--}}
+{{--                                <span>Create</span>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                 </div>

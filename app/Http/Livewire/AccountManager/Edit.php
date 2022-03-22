@@ -67,3 +67,5 @@ class Edit extends Component
         $this->listsForFields['roles']           = Role::pluck('title', 'id')->toArray();
     }
 }
+
+
