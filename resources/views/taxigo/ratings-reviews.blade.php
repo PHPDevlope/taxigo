@@ -44,7 +44,7 @@
                     @can('user_rating_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/ratings-reviews/user-ratings*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.ratings-reviews.user-ratings") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-star">
                                 </i>
                                 {{ trans('cruds.userRating.title') }}
                             </a>
@@ -53,7 +53,7 @@
                     @can('provider_rating_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/ratings-reviews/provider-ratings*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.ratings-reviews.provider-ratings") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-star">
                                 </i>
                                 {{ trans('cruds.providerRating.title') }}
                             </a>

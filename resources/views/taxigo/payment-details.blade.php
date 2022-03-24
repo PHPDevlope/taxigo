@@ -25,7 +25,7 @@
                     @can('payment_history_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/payment-details/payment-histories*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.payment-details.payment-histories") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-history">
                                 </i>
                                 {{ trans('cruds.paymentHistory.title') }}
                             </a>

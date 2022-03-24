@@ -25,7 +25,7 @@
                     @can('dispute_type_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/dispute-panel/dispute-types*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-panel.dispute-types") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
                                 </i>
                                 {{ trans('cruds.disputeType.title') }}
                             </a>
@@ -34,7 +34,7 @@
                     @can('dispute_request_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/dispute-panel/dispute-requests*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-panel.dispute-requests") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-history">
                                 </i>
                                 {{ trans('cruds.disputeRequest.title') }}
                             </a>

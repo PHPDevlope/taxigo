@@ -21,7 +21,7 @@
                 <ul class="nav nav-tabs mt-4 overflow-x border-0">
                     <li class="nav-item">
                         <a class="nav-link active" >
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-user">
+                            <i class="fa-fw c-sidebar-nav-icon fas fa-history">
                             </i>
                             Request History
                         </a>

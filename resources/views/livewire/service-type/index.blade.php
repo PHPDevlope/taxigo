@@ -45,30 +45,10 @@
                                 @include('components.table.sort', ['field' => 'service_name'])
                             </th>
                             <th scope="col">
-                                {{ trans('cruds.serviceType.fields.provider_name') }}
-                                @include('components.table.sort', ['field' => 'provider_name'])
-                            </th>
-                            <th scope="col">
                                 {{ trans('cruds.serviceType.fields.service_maker_image') }}
                             </th>
                             <th scope="col">
                                 {{ trans('cruds.serviceType.fields.service_image') }}
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.serviceType.fields.description') }}
-                                @include('components.table.sort', ['field' => 'description'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.serviceType.fields.outstation_oneway_price') }}
-                                @include('components.table.sort', ['field' => 'outstation_oneway_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.serviceType.fields.outstation_roundtrip_price') }}
-                                @include('components.table.sort', ['field' => 'outstation_roundtrip_price'])
-                            </th>
-                            <th scope="col">
-                                {{ trans('cruds.serviceType.fields.driver_bata') }}
-                                @include('components.table.sort', ['field' => 'driver_bata'])
                             </th>
                             <th scope="col">
                                 {{ trans('cruds.serviceType.fields.rental_per_hour') }}
@@ -105,9 +85,6 @@
                                     {{ $serviceType->service_name }}
                                 </td>
                                 <td>
-                                    {{ $serviceType->provider_name }}
-                                </td>
-                                <td>
                                     @foreach($serviceType->service_maker_image as $key => $entry)
                                         <a class="link-photo" href="{{ $entry['url'] }}">
                                             <img src="{{ $entry['thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
@@ -120,18 +97,6 @@
                                             <img src="{{ $entry['thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
                                         </a>
                                     @endforeach
-                                </td>
-                                <td>
-                                    {{ $serviceType->description }}
-                                </td>
-                                <td>
-                                    {{ $serviceType->outstation_oneway_price }}
-                                </td>
-                                <td>
-                                    {{ $serviceType->outstation_roundtrip_price }}
-                                </td>
-                                <td>
-                                    {{ $serviceType->driver_bata }}
                                 </td>
                                 <td>
                                     {{ $serviceType->rental_per_hour }}

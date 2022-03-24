@@ -120,5 +120,15 @@ class HomeController
         return view('taxigo.user-alert');
     }
 
+    public function providerDocument()
+    {
+        return view('taxigo.provider-document');
+    }
+
+    public function providerService()
+    {
+        return view('taxigo.provider-service');
+    }
+
 
 }

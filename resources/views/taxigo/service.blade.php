@@ -25,7 +25,7 @@
                     @can('service_type_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/service/service-types*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.service.service-types") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
                                 </i>
                                 {{ trans('cruds.serviceType.title') }}
                             </a>
@@ -34,7 +34,7 @@
                     @can('peak_time_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/service/peak-times") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.service.peak-times") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-clock">
                                 </i>
                                 {{ trans('cruds.peakTime.title') }}
                             </a>
@@ -43,7 +43,7 @@
                     @can('geo_fencing_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/service/geo-fencings*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.service.geo-fencings") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-map">
                                 </i>
                                 {{ trans('cruds.geoFencing.title') }}
                             </a>

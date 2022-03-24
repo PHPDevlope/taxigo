@@ -20,7 +20,9 @@ use App\Http\Controllers\Admin\PeakTimeController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PromocodeController;
 use App\Http\Controllers\Admin\ProviderController;
+use App\Http\Controllers\Admin\ProviderDocumentController;
 use App\Http\Controllers\Admin\ProviderRatingController;
+use App\Http\Controllers\Admin\ProviderServiceController;
 use App\Http\Controllers\Admin\ProvidersettlementController;
 use App\Http\Controllers\Admin\RequestHistoryController;
 use App\Http\Controllers\Admin\RoleController;
@@ -96,6 +98,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     // Dispute Manager
     Route::resource('dispute-managers', DisputeManagerController::class, ['except' => ['store', 'update', 'destroy']]);
 
+    // Provider Document
+    Route::resource('provider-documents', ProviderDocumentController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Provider Service
+    Route::resource('provider-services', ProviderServiceController::class, ['except' => ['store', 'update', 'destroy']]);
+
     // Company
     Route::post('companies/media', [CompanyController::class, 'storeMedia'])->name('companies.storeMedia');
     Route::resource('companies', CompanyController::class, ['except' => ['store', 'update', 'destroy']]);
@@ -147,6 +155,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('dispatchers', [HomeController::class, 'dispatcher'])->name('dispatchers');
     Route::get('account-managers', [HomeController::class, 'accountManager'])->name('account-managers');
     Route::get('dispute-managers', [HomeController::class, 'disputeManager'])->name('dispute-managers');
+
+    Route::get('provider-documents', [HomeController::class, 'providerDocument'])->name('provider-documents');
+    Route::get('provider-services', [HomeController::class, 'providerService'])->name('provider-services');
 
     // ACCOUNTS
     Route::get('statements', [HomeController::class, 'statements'])->name('statements');

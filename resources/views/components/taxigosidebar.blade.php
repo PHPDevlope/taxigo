@@ -99,6 +99,20 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route("admin.provider-documents") }}" class="{{ request()->is("admin/provider-documents*") ? "nav-link active" : "nav-link" }}">
+                        <i class="fa-fw c-sidebar-nav-icon fas fa-book">
+                        </i>
+                        Provider Document
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route("admin.provider-services") }}" class="{{ request()->is("admin/provider-services*") ? "nav-link active" : "nav-link" }}">
+                        <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
+                        </i>
+                        Provider Service
+                    </a>
+                </li>
 
 
                 <span class="menu-label">Accounts</span>
@@ -184,14 +198,14 @@
 
                 <span class="menu-label">Setting</span>
                 @can('m_setting_access')
-                    <li class="nav-item">
-                        <a class="{{ request()->is("admin/m-settings*") ? "nav-link active" : "nav-link" }}"
-                           href="{{ route("admin.m-settings") }}">
-                            <i class="fa-fw c-sidebar-nav-icon fas fa-cog">
-                            </i>
-                            {{ trans('cruds.mSetting.title') }}
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="{{ request()->is("admin/m-settings*") ? "nav-link active" : "nav-link" }}"--}}
+{{--                           href="{{ route("admin.m-settings") }}">--}}
+{{--                            <i class="fa-fw c-sidebar-nav-icon fas fa-cog">--}}
+{{--                            </i>--}}
+{{--                            {{ trans('cruds.mSetting.title') }}--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 @endcan
                 <li class="nav-item">
                     <a class="{{ request()->is("admin/site-settings*") ? "nav-link active" : "nav-link" }}"
