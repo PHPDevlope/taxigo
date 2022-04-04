@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DisputeManagerController;
 use App\Http\Controllers\Admin\DisputeRequestController;
 use App\Http\Controllers\Admin\DisputeTypeController;
 use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\DocumentServiceController;
 use App\Http\Controllers\Admin\FleetOwnerController;
 use App\Http\Controllers\Admin\GeoFencingController;
 use App\Http\Controllers\Admin\HomeController;
@@ -104,6 +105,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     // Provider Service
     Route::resource('provider-services', ProviderServiceController::class, ['except' => ['store', 'update', 'destroy']]);
 
+
     // Company
     Route::post('companies/media', [CompanyController::class, 'storeMedia'])->name('companies.storeMedia');
     Route::resource('companies', CompanyController::class, ['except' => ['store', 'update', 'destroy']]);
@@ -145,12 +147,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('dispatcher-panels',[HomeController::class, 'dispatcherPanel'])->name('dispatcher-panels');
 
     Route::get('company', [HomeController::class, 'company'])->name('company');
-    Route::get('company/companies', [HomeController::class, 'company'])->name('company/companies');
+    Route::get('company/companies', [HomeController::class, 'company'])->name('company.companies');
 
     // MEMBERS
     Route::get('users', [HomeController::class, 'user'])->name('users');
 
     Route::get('providers', [HomeController::class, 'provider'])->name('providers');
+    Route::get('providers/document-services/{id}', [HomeController::class, 'documentService'])->name('providers.document-services');
+
     Route::get('fleet-owners', [HomeController::class, 'fleetOwner'])->name('fleet-owners');
     Route::get('dispatchers', [HomeController::class, 'dispatcher'])->name('dispatchers');
     Route::get('account-managers', [HomeController::class, 'accountManager'])->name('account-managers');
@@ -161,10 +165,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // ACCOUNTS
     Route::get('statements', [HomeController::class, 'statements'])->name('statements');
-    Route::get('statements/m-statements', [HomeController::class, 'statements'])->name('statements/m-statements');
+    Route::get('statements/m-statements', [HomeController::class, 'statements'])->name('statements.m-statements');
 
     Route::get('provider-settlement' , [HomeController::class, 'providerSettlement'])->name('provider-settlement');
-    Route::get('provider-settlement/providersettlements' , [HomeController::class, 'providerSettlement'])->name('provider-settlement/providersettlements');
+    Route::get('provider-settlement/providersettlements' , [HomeController::class, 'providerSettlement'])->name('provider-settlement.providersettlements');
 
     // DETAILS
     Route::get('ratings-reviews', [HomeController::class, 'ratingsReviews'])->name('ratings-reviews');
@@ -173,19 +177,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // HISTORY
     Route::get('request-history', [HomeController::class, 'requestHistory'])->name('request-history');
-    Route::get('request-history/request-histories', [HomeController::class, 'requestHistory'])->name('request-history/request-histories');
+    Route::get('request-history/request-histories', [HomeController::class, 'requestHistory'])->name('request-history.request-histories');
     Route::get('payment-details', [HomeController::class, 'paymentDetails'])->name('payment-details');
     Route::get('payment-details/payment-histories', [HomeController::class, 'paymentDetails'])->name('payment-details.payment-histories');
 
     // GENERAL
     Route::get('document', [HomeController::class, 'documents'])->name('document');
-    Route::get('document/documents', [HomeController::class, 'documents'])->name('document/documents');
+    Route::get('document/documents', [HomeController::class, 'documents'])->name('document.documents');
     Route::get('service', [HomeController::class, 'service'])->name('service');
     Route::get('service/service-types', [HomeController::class, 'service'])->name('service.service-types');
     Route::get('service/peak-times', [HomeController::class, 'service'])->name('service.peak-times');
     Route::get('service/geo-fencings', [HomeController::class, 'service'])->name('service.geo-fencings');
     Route::get('promocode', [HomeController::class, 'promocodes'])->name('promocode');
-    Route::get('promocode/promocodes', [HomeController::class, 'promocodes'])->name('promocode/promocodes');
+    Route::get('promocode/promocodes', [HomeController::class, 'promocodes'])->name('promocode.promocodes');
 
     // SETTING
     Route::get('m-settings', [HomeController::class, 'setting'])->name('m-settings');
@@ -215,7 +219,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // OTHER
     Route::get('static-page', [HomeController::class, 'staticPage'])->name('static-page');
-    Route::get('static-page/static-pages', [HomeController::class, 'staticPage'])->name('static-page/static-pages');
+    Route::get('static-page/static-pages', [HomeController::class, 'staticPage'])->name('static-page.static-pages');
 
     // USERS
     Route::get('role-management', [HomeController::class, 'roleManagement'])->name('role-management');
@@ -223,7 +227,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('role-management/permissions', [HomeController::class, 'roleManagement'])->name('role-management.permissions');
     Route::get('role-management/audit-logs', [HomeController::class, 'roleManagement'])->name('role-management.audit-logs');
     Route::get('user-alert', [HomeController::class, 'userAlert'])->name('user-alert');
-    Route::get('user-alert/userAlert-alerts', [HomeController::class, 'userAlert'])->name('user-alert/user-alerts');
+    Route::get('user-alert/userAlert-alerts', [HomeController::class, 'userAlert'])->name('user-alert.user-alerts');
 
     // Account
     Route::get('my-account', [HomeController::class, 'myAccount'])->name('my-account');

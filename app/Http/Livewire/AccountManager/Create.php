@@ -63,6 +63,6 @@ class Create extends Component
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['roles']           = Role::pluck('title', 'id')->toArray();
+        $this->listsForFields['roles']           = Role::pluck('title' ,'id')->toArray();
     }
 }

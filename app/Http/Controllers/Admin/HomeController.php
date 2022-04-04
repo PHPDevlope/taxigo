@@ -130,5 +130,10 @@ class HomeController
         return view('taxigo.provider-service');
     }
 
+    public function documentService()
+    {
+        return view('taxigo.document-service');
+    }
+
 
 }

@@ -1,5 +1,4 @@
 <form wire:submit.prevent="submit" class="pt-3">
-
     <div class="form-group mt-2 {{ $errors->has('paymentHistory.transaction') ? 'invalid' : '' }}">
         <label class="form-label" for="transaction">{{ trans('cruds.paymentHistory.fields.transaction') }}</label>
         <input class="form-control" type="text" name="transaction" id="transaction" wire:model.defer="paymentHistory.transaction">

@@ -52,6 +52,9 @@
                             @include('components.table.sort', ['field' => 'provider_status'])
                         </th>
                         <th scope="col">
+                            Document / Service Type
+                        </th>
+                        <th scope="col">
                         </th>
                     </tr>
                     </thead>
@@ -74,12 +77,12 @@
                                 {{ $user->mobile }}
                             </td>
                             <td>
-                                {{--                                    {{ $user->provider_status_label }}--}}
-                                @if($user->provider_status === "yes")
-                                    <span class="badge rounded-pill bg-success">Active</span>
-                                @elseif($user->provider_status === "no")
-                                    <span class="badge rounded-pill bg-danger">Inactive</span>
-                                @endif
+                                {{ $user->provider_status_label }}
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-danger" href="{{ route('admin.providers.document-services', $user) }}" >
+                                    Attention!
+                                </a>
                             </td>
                             <td class="text-end">
                                 <div class="flex justify-end">

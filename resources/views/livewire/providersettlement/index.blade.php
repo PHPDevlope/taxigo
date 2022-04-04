@@ -86,11 +86,11 @@
                                                 {{ trans('global.view') }}
                                             </a>
                                         @endcan
-                                        @can('providersettlement_edit')
-                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.providersettlements.edit', $providersettlement) }}">
-                                                {{ trans('global.edit') }}
-                                            </a>
-                                        @endcan
+{{--                                        @can('providersettlement_edit')--}}
+{{--                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.providersettlements.edit', $providersettlement) }}">--}}
+{{--                                                {{ trans('global.edit') }}--}}
+{{--                                            </a>--}}
+{{--                                        @endcan--}}
                                         @can('providersettlement_delete')
                                             <button class="btn btn-sm btn-neutral btn-square text-danger-hover" type="button" wire:click="confirm('delete', {{ $providersettlement->id }})" wire:loading.attr="disabled">
                                                 <i class="bi bi-trash"></i>

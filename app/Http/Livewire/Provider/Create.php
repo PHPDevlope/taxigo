@@ -54,11 +54,16 @@ class Create extends Component
                 'integer',
                 'exists:roles,id',
             ],
+            'user.provider_status' => [
+                'nullable',
+                'in:' . implode(',', array_keys($this->listsForFields['provider_status'])),
+            ],
         ];
     }
 
     protected function initListsForFields(): void
     {
         $this->listsForFields['roles']           = Role::pluck('title', 'id')->toArray();
+        $this->listsForFields['provider_status'] = $this->user::PROVIDER_STATUS_SELECT;
     }
 }

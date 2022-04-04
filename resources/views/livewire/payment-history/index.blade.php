@@ -94,16 +94,16 @@
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
-                                    @can('payment_history_edit')
-                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.payment-histories.edit', $paymentHistory) }}">
-                                            {{ trans('global.edit') }}
-                                        </a>
-                                    @endcan
-                                    @can('payment_history_delete')
-                                        <button class="btn btn-sm btn-neutral btn-square text-danger-hover" type="button" wire:click="confirm('delete', {{ $paymentHistory->id }})" wire:loading.attr="disabled">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    @endcan
+{{--                                    @can('payment_history_edit')--}}
+{{--                                        <a class="btn btn-sm btn-neutral" href="{{ route('admin.payment-histories.edit', $paymentHistory) }}">--}}
+{{--                                            {{ trans('global.edit') }}--}}
+{{--                                        </a>--}}
+{{--                                    @endcan--}}
+{{--                                    @can('payment_history_delete')--}}
+{{--                                        <button class="btn btn-sm btn-neutral btn-square text-danger-hover" type="button" wire:click="confirm('delete', {{ $paymentHistory->id }})" wire:loading.attr="disabled">--}}
+{{--                                            <i class="bi bi-trash"></i>--}}
+{{--                                        </button>--}}
+{{--                                    @endcan--}}
                                 </div>
                             </td>
                         </tr>

@@ -38,16 +38,33 @@
                                 {{ trans('cruds.mStatement.fields.id') }}
                                 @include('components.table.sort', ['field' => 'id'])
                             </th>
-                            <th scope="col">
-                                {{ trans('cruds.mStatement.fields.user') }}
-                                @include('components.table.sort', ['field' => 'user.name'])
+                            <th>
+                                {{ trans('cruds.mStatement.fields.booking') }}
+                                @include('components.table.sort', ['field' => 'booking'])
                             </th>
-                            <th scope="col">
-                                {{ trans('cruds.mStatement.fields.document') }}
-                                @include('components.table.sort', ['field' => 'document.document_name'])
+                            <th>
+                                {{ trans('cruds.mStatement.fields.picked_up') }}
+                                @include('components.table.sort', ['field' => 'picked_up'])
                             </th>
-                            <th scope="col">
-                                {{ trans('cruds.mStatement.fields.files') }}
+                            <th>
+                                {{ trans('cruds.mStatement.fields.dropped') }}
+                                @include('components.table.sort', ['field' => 'dropped'])
+                            </th>
+                            <th>
+                                {{ trans('cruds.mStatement.fields.commission') }}
+                                @include('components.table.sort', ['field' => 'commission'])
+                            </th>
+                            <th>
+                                {{ trans('cruds.mStatement.fields.request') }}
+                                @include('components.table.sort', ['field' => 'request.total_distance'])
+                            </th>
+                            <th>
+                                {{ trans('cruds.mStatement.fields.status') }}
+                                @include('components.table.sort', ['field' => 'status'])
+                            </th>
+                            <th>
+                                {{ trans('cruds.mStatement.fields.eraned') }}
+                                @include('components.table.sort', ['field' => 'eraned'])
                             </th>
                             <th scope="col">
                             </th>
@@ -63,47 +80,59 @@
                                     {{ $mStatement->id }}
                                 </td>
                                 <td>
-                                    @if($mStatement->user)
+                                    {{ $mStatement->booking }}
+                                    {{ $mStatement->request->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mStatement->picked_up }}
+                                    {{ $mStatement->request->source_address ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mStatement->dropped }}
+                                    {{ $mStatement->request->dist_address ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mStatement->commission }}
+                                    {{ $mStatement->request->provider_admin_commission ?? '' }}
+                                </td>
+                                <td>
+                                    @if($mStatement->request)
                                         <span class="badge badge-lg badge-dot">
                                             <i class="bg-success"></i>
-                                            {{ $mStatement->user->name ?? '' }}
+                                            {{ $mStatement->request->total_distance ?? '' }}
                                         </span>
                                     @endif
                                 </td>
                                 <td>
-                                    @if($mStatement->document)
-                                        <span class="badge badge-lg badge-dot">
-                                            <i class="bg-success"></i>
-                                            {{ $mStatement->document->document_name ?? '' }}
-                                        </span>
-                                    @endif
+                                    {{ $mStatement->status }}
+                                    {{ $mStatement->request->ride_status ?? '' }}
                                 </td>
                                 <td>
-                                    @foreach($mStatement->files as $key => $entry)
-                                        <a class="link-light-blue" href="{{ $entry['url'] }}">
-                                            <i class="far fa-file">
-                                            </i>
-                                            {{ $entry['file_name'] }}
-                                        </a>
-                                    @endforeach
+                                    {{ $mStatement->eraned }}
+                                    {{ $mStatement->request->provider_earning ?? '' }}
                                 </td>
                                 <td class="text-end">
                                     <div class="flex justify-end">
-                                        @can('m_statement_show')
-                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.show', $mStatement) }}">
+                                        @can('request_history_show')
+                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.request-histories.show', $mStatement->request) }}">
                                                 {{ trans('global.view') }}
                                             </a>
                                         @endcan
-                                        @can('m_statement_edit')
-                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.edit', $mStatement) }}">
-                                                {{ trans('global.edit') }}
-                                            </a>
-                                        @endcan
-                                        @can('m_statement_delete')
-                                            <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button" wire:click="confirm('delete', {{ $mStatement->id }})" wire:loading.attr="disabled">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        @endcan
+{{--                                        @can('m_statement_show')--}}
+{{--                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.show', $mStatement) }}">--}}
+{{--                                                {{ trans('global.view') }}--}}
+{{--                                            </a>--}}
+{{--                                        @endcan--}}
+{{--                                        @can('m_statement_edit')--}}
+{{--                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.m-statements.edit', $mStatement) }}">--}}
+{{--                                                {{ trans('global.edit') }}--}}
+{{--                                            </a>--}}
+{{--                                        @endcan--}}
+{{--                                        @can('m_statement_delete')--}}
+{{--                                            <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button" wire:click="confirm('delete', {{ $mStatement->id }})" wire:loading.attr="disabled">--}}
+{{--                                                <i class="bi bi-trash"></i>--}}
+{{--                                            </button>--}}
+{{--                                        @endcan--}}
                                     </div>
                                 </td>
                             </tr>

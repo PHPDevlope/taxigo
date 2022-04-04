@@ -18,6 +18,8 @@ class AddColumnToRequestHistoriesTable extends Migration
             $table->string('source_longitude')->nullable();
             $table->string('dist_latitude')->nullable();
             $table->string('dist_longitude')->nullable();
+            $table->string('source_address')->nullable();
+            $table->string('dist_address')->nullable();
         });
     }
 

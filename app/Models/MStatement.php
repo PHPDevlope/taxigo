@@ -23,12 +23,26 @@ class MStatement extends Model implements HasMedia
         'id',
         'user.name',
         'document.document_name',
+        'booking',
+        'picked_up',
+        'dropped',
+        'commission',
+        'request.total_distance',
+        'status',
+        'eraned',
     ];
 
     public $filterable = [
         'id',
         'user.name',
         'document.document_name',
+        'booking',
+        'picked_up',
+        'dropped',
+        'commission',
+        'request.total_distance',
+        'status',
+        'eraned',
     ];
 
     protected $appends = [
@@ -38,6 +52,13 @@ class MStatement extends Model implements HasMedia
     protected $fillable = [
         'user_id',
         'document_id',
+        'booking',
+        'picked_up',
+        'dropped',
+        'commission',
+        'request.total_distance',
+        'status',
+        'eraned',
     ];
 
     protected $dates = [
@@ -54,6 +75,11 @@ class MStatement extends Model implements HasMedia
     public function document()
     {
         return $this->belongsTo(Document::class);
+    }
+
+    public function request()
+    {
+        return $this->belongsTo(RequestHistory::class);
     }
 
     public function getFilesAttribute()

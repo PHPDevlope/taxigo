@@ -41,21 +41,21 @@
         <input class="form-control" type="text" name="service-type">
     </div>
 
-{{--    <div class="form-group mt-2 {{ $errors->has('user.provider_status') ? 'invalid' : '' }}">--}}
-{{--        <label class="form-label">{{ trans('cruds.user.fields.provider_status') }}</label>--}}
-{{--        <select class="form-control" wire:model="user.provider_status">--}}
-{{--            <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>--}}
-{{--            @foreach($this->listsForFields['provider_status'] as $key => $value)--}}
-{{--                <option value="{{ $key }}">{{ $value }}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
-{{--        <div class="validation-message">--}}
-{{--            {{ $errors->first('user.provider_status') }}--}}
-{{--        </div>--}}
-{{--        <div class="help-block">--}}
-{{--            {{ trans('cruds.user.fields.provider_status_helper') }}--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="form-group mt-2 {{ $errors->has('user.provider_status') ? 'invalid' : '' }}">
+        <label class="form-label">{{ trans('cruds.user.fields.provider_status') }}</label>
+        <select class="form-control" wire:model="user.provider_status">
+            <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>
+            @foreach($this->listsForFields['provider_status'] as $key => $value)
+                <option value="{{ $key }}">{{ $value }}</option>
+            @endforeach
+        </select>
+        <div class="validation-message">
+            {{ $errors->first('user.provider_status') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.user.fields.provider_status_helper') }}
+        </div>
+    </div>
 
     <div class="form-group mt-4">
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">

@@ -99,20 +99,20 @@
                         </a>
                     </li>
                 @endcan
-                <li class="nav-item">
-                    <a href="{{ route("admin.provider-documents") }}" class="{{ request()->is("admin/provider-documents*") ? "nav-link active" : "nav-link" }}">
-                        <i class="fa-fw c-sidebar-nav-icon fas fa-book">
-                        </i>
-                        Provider Document
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route("admin.provider-services") }}" class="{{ request()->is("admin/provider-services*") ? "nav-link active" : "nav-link" }}">
-                        <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
-                        </i>
-                        Provider Service
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route("admin.provider-documents") }}" class="{{ request()->is("admin/provider-documents*") ? "nav-link active" : "nav-link" }}">--}}
+{{--                        <i class="fa-fw c-sidebar-nav-icon fas fa-book">--}}
+{{--                        </i>--}}
+{{--                        Provider Document--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route("admin.provider-services") }}" class="{{ request()->is("admin/provider-services*") ? "nav-link active" : "nav-link" }}">--}}
+{{--                        <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">--}}
+{{--                        </i>--}}
+{{--                        Provider Service--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
 
                 <span class="menu-label">Accounts</span>

@@ -116,11 +116,11 @@
                                                 {{ trans('global.view') }}
                                             </a>
                                         @endcan
-                                        @can('request_history_edit')
-                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.request-histories.edit', $requestHistory) }}">
-                                                {{ trans('global.edit') }}
-                                            </a>
-                                        @endcan
+{{--                                        @can('request_history_edit')--}}
+{{--                                            <a class="btn btn-sm btn-neutral" href="{{ route('admin.request-histories.edit', $requestHistory) }}">--}}
+{{--                                                {{ trans('global.edit') }}--}}
+{{--                                            </a>--}}
+{{--                                        @endcan--}}
                                         @can('request_history_delete')
                                             <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button" wire:click="confirm('delete', {{ $requestHistory->id }})" wire:loading.attr="disabled">
                                                 <i class="bi bi-trash"></i>

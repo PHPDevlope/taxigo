@@ -4,6 +4,7 @@ namespace App\Http\Livewire\MStatement;
 
 use App\Models\Document;
 use App\Models\MStatement;
+use App\Models\RequestHistory;
 use App\Models\User;
 use Livewire\Component;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -83,6 +84,35 @@ class Create extends Component
                 'integer',
                 'exists:media,id',
             ],
+            'mStatement.booking' => [
+                'string',
+                'nullable',
+            ],
+            'mStatement.picked_up' => [
+                'string',
+                'nullable',
+            ],
+            'mStatement.dropped' => [
+                'string',
+                'nullable',
+            ],
+            'mStatement.commission' => [
+                'string',
+                'nullable',
+            ],
+            'mStatement.request_id' => [
+                'integer',
+                'exists:request_histories,id',
+                'nullable',
+            ],
+            'mStatement.status' => [
+                'string',
+                'nullable',
+            ],
+            'mStatement.eraned' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 
@@ -90,5 +120,6 @@ class Create extends Component
     {
         $this->listsForFields['user']     = User::pluck('name', 'id')->toArray();
         $this->listsForFields['document'] = Document::pluck('document_name', 'id')->toArray();
+        $this->listsForFields['request'] = RequestHistory::pluck('total_distance', 'id')->toArray();
     }
 }
