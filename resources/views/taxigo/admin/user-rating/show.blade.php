@@ -39,7 +39,10 @@
                                     </th>
                                     <td>
                                         @if($userRating->request)
-                                            <span class="badge badge-relationship">{{ $userRating->request->total_distance ?? '' }}</span>
+                                            <span class="badge badge-lg badge-dot">
+                                                <i class="bg-success"></i>
+                                                {{ $userRating->request->total_distance ?? '' }}
+                                            </span>
                                         @endif
                                     </td>
                                 </tr>
@@ -49,7 +52,10 @@
                                     </th>
                                     <td>
                                         @if($userRating->userName)
-                                            <span class="badge badge-relationship">{{ $userRating->userName->name ?? '' }}</span>
+                                            <span class="badge badge-lg badge-dot">
+                                                <i class="bg-success"></i>
+                                                {{ $userRating->userName->name ?? '' }}
+                                            </span>
                                         @endif
                                     </td>
                                 </tr>
@@ -59,7 +65,10 @@
                                     </th>
                                     <td>
                                         @if($userRating->providerName)
-                                            <span class="badge badge-relationship">{{ $userRating->providerName->name ?? '' }}</span>
+                                            <span class="badge badge-lg badge-dot">
+                                                <i class="bg-success"></i>
+                                                {{ $userRating->providerName->name ?? '' }}
+                                            </span>
                                         @endif
                                     </td>
                                 </tr>

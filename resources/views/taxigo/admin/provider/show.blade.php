@@ -38,7 +38,7 @@
                                         Fleet Name
                                     </td>
                                     <td>
-
+                                        -
                                     </td>
                                 </tr>
                                 <tr>
@@ -46,7 +46,7 @@
                                         Joined At
                                     </td>
                                     <td>
-
+                                        {{ date('d M Y' , strtotime($user->created_at)) }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -63,38 +63,6 @@
                                     </th>
                                     <td>
                                         {{ $user->mobile }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Total / Accepted / Cancelled
-                                    </th>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Vehicle Type
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Vehicle Number
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Document / Service Type
-                                    </td>
-                                    <td>
-
                                     </td>
                                 </tr>
                                 <tr>

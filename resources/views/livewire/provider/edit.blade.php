@@ -21,26 +21,6 @@
         </div>
     </div>
 
-    <div class="form-group mt-2">
-        <label class="form-label" for="Total">Total / Accepted / Cancelled</label>
-        <input class="form-control" type="text" name="mobile">
-    </div>
-
-    <div class="form-group mt-2">
-        <label class="form-label" for="vehicle-type">Vehicle Type</label>
-        <input class="form-control" type="text" name="vehicle-type">
-    </div>
-
-    <div class="form-group mt-2">
-        <label class="form-label" for="vehicle-number">Vehicle Number</label>
-        <input class="form-control" type="text" name="vehicle-number">
-    </div>
-
-    <div class="form-group mt-2">
-        <label class="form-label" for="service-type">Document / Service Type</label>
-        <input class="form-control" type="text" name="service-type">
-    </div>
-
     <div class="form-group mt-2 {{ $errors->has('user.provider_status') ? 'invalid' : '' }}">
         <label class="form-label">{{ trans('cruds.user.fields.provider_status') }}</label>
         <select class="form-control" wire:model="user.provider_status">

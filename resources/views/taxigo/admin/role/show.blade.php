@@ -45,7 +45,10 @@
                                 </th>
                                 <td>
                                     @foreach($role->permissions as $key => $entry)
-                                        <span class="badge badge-relationship">{{ $entry->title }}</span>
+                                        <span class="badge badge-lg badge-dot">
+                                                <i class="bg-success"></i>
+                                            {{ $entry->title }}
+                                        </span>
                                     @endforeach
                                 </td>
                             </tr>

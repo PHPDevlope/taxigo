@@ -55,7 +55,10 @@
                                         </th>
                                         <td>
                                             @foreach($userAlert->users as $key => $entry)
-                                                <span class="badge badge-relationship">{{ $entry->name }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $entry->name }}
+                                                </span>
                                             @endforeach
                                         </td>
                                     </tr>

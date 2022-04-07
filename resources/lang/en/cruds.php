@@ -207,6 +207,8 @@ return [
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',
+            'user_id'               => 'User',
+            'user_id_helper'        => ' ',
             'promocode'             => 'Promocode',
             'promocode_helper'      => ' ',
             'created_at'            => 'Created at',

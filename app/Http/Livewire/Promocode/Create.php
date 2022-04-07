@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Promocode;
 
 use App\Models\Promocode;
+use App\Models\User;
 use Livewire\Component;
 
 class Create extends Component
 {
+    public $users;
+
     public Promocode $promocode;
 
     public array $listsForFields = [];
@@ -15,6 +18,12 @@ class Create extends Component
     {
         $this->promocode = $promocode;
         $this->initListsForFields();
+    }
+
+    public function updated()
+    {
+        $user_mobile = $this->promocode->user;
+        $this->users = User::where('mobile', $user_mobile)->first();
     }
 
     public function render()
@@ -58,11 +67,17 @@ class Create extends Component
                 'nullable',
                 'date_format:' . config('project.date_format'),
             ],
+            'promocode.user_id' => [
+                'integer',
+                'exists:users,id',
+                'nullable',
+            ],
         ];
     }
 
     protected function initListsForFields(): void
     {
         $this->listsForFields['promocodes_use'] = $this->promocode::PROMOCODES_USE_SELECT;
+        $this->listsForFields['user'] = User::pluck('name', 'id')->toArray();
     }
 }

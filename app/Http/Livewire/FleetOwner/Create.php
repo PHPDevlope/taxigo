@@ -13,8 +13,6 @@ class Create extends Component
 
     public User $user;
 
-    public array $roles = [];
-
     public array $companies = [];
 
     public array $mediaToRemove = [];
@@ -45,6 +43,9 @@ class Create extends Component
 
     public function render()
     {
+        $roles = Role::find('4');
+        $this->roles = $roles->id;
+
         return view('livewire.fleet-owner.create');
     }
 
@@ -91,14 +92,6 @@ class Create extends Component
                 'required',
                 'unique:users,email',
             ],
-            'roles' => [
-                'required',
-                'array',
-            ],
-            'roles.*.id' => [
-                'integer',
-                'exists:roles,id',
-            ],
             'user.company_id' => [
                 'integer',
                 'exists:companies,id',
@@ -110,7 +103,6 @@ class Create extends Component
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['roles'] = Role::pluck('title', 'id')->toArray();
         $this->listsForFields['company'] = Company::pluck('name', 'id')->toArray();
     }
 }

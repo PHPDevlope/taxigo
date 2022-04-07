@@ -4,10 +4,13 @@ namespace App\Http\Livewire\DisputeRequest;
 
 use App\Models\DisputeRequest;
 use App\Models\DisputeType;
+use App\Models\RequestHistory;
 use Livewire\Component;
 
 class Create extends Component
 {
+    public $histories;
+
     public array $listsForFields = [];
 
     public DisputeRequest $disputeRequest;
@@ -18,6 +21,11 @@ class Create extends Component
         $this->initListsForFields();
     }
 
+    public function updated(){
+        $request_id = $this->disputeRequest->request_detail;
+        $this->histories = RequestHistory::where('id', $request_id)->first();
+    }
+
     public function render()
     {
         return view('livewire.dispute-request.create');
@@ -25,27 +33,32 @@ class Create extends Component
 
     public function submit()
     {
+        if($this->histories == '')
+        {
+            $this->disputeRequest->request_detail = NULL;
+        }
         $this->validate();
 
         $this->disputeRequest->save();
 
-        return redirect()->route('admin.dispute-requests.index');
+        return redirect()->route('admin.dispute-panel.dispute-requests');
     }
 
     protected function rules(): array
     {
         return [
+            'disputeRequest.dispute_id' => [
+                'integer',
+                'exists:dispute_types,id',
+                'nullable',
+            ],
             'disputeRequest.user_provider' => [
                 'string',
+                'required',
                 'nullable',
             ],
             'disputeRequest.request_detail' => [
                 'string',
-                'nullable',
-            ],
-            'disputeRequest.dispute_id' => [
-                'integer',
-                'exists:dispute_types,id',
                 'nullable',
             ],
         ];

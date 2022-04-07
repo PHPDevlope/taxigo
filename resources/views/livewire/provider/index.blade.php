@@ -39,6 +39,7 @@
                             @include('components.table.sort', ['field' => 'id'])
                         </th>
                         <th scope="col">Fleet Name</th>
+                        <th scope="col">Joined At</th>
                         <th scope="col">
                             {{ trans('cruds.user.fields.name') }}
                             @include('components.table.sort', ['field' => 'name'])
@@ -69,6 +70,9 @@
                             </td>
                             <td>
 
+                            </td>
+                            <td>
+                                {{ date('d M Y' , strtotime($user->created_at)) }}
                             </td>
                             <td>
                                 {{ $user->name }}

@@ -22,15 +22,6 @@
                 </div>
                 <!-- Nav -->
                 <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                    @can('dispute_type_access')
-                        <li class="nav-item">
-                            <a class="{{ request()->is("admin/dispute-panel/dispute-types*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-panel.dispute-types") }}">
-                                <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
-                                </i>
-                                {{ trans('cruds.disputeType.title') }}
-                            </a>
-                        </li>
-                    @endcan
                     @can('dispute_request_access')
                         <li class="nav-item">
                             <a class="{{ request()->is("admin/dispute-panel/dispute-requests*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-panel.dispute-requests") }}">
@@ -40,6 +31,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('dispute_type_access')
+                        <li class="nav-item">
+                            <a class="{{ request()->is("admin/dispute-panel/dispute-types*") ? "nav-link active" : "nav-link" }}" href="{{ route("admin.dispute-panel.dispute-types") }}">
+                                <i class="fa-fw c-sidebar-nav-icon fas fa-rocket">
+                                </i>
+                                {{ trans('cruds.disputeType.title') }}
+                            </a>
+                        </li>
+                    @endcan
+
                 </ul>
             </div>
         </div>
@@ -48,29 +49,29 @@
     <main class="py-6 bg-surface-secondary">
         <div class="container-fluid">
             <div>
-                @if(request()->is("admin/dispute-panel/dispute-types"))
-                    @livewire('dispute-type.index')
-                @elseif(request()->is("admin/dispute-panel/dispute-requests"))
+                @if(request()->is("admin/dispute-panel/dispute-requests"))
                     @livewire('dispute-request.index')
+                @elseif(request()->is("admin/dispute-panel/dispute-types"))
+                    @livewire('dispute-type.index')
                 @endif
             </div>
         </div>
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="Label">
-                    @if(request()->is("admin/dispute-panel/dispute-types"))
-                        Add Dispute Type
-                    @elseif(request()->is("admin/dispute-panel/dispute-requests"))
+                    @if(request()->is("admin/dispute-panel/dispute-requests"))
                         Add Dispute Request
+                    @elseif(request()->is("admin/dispute-panel/dispute-types"))
+                        Add Dispute Type
                     @endif
                 </h5>
                 <button type="button" class="btn-close text-reset text-xs" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body pt-0">
-                @if(request()->is("admin/dispute-panel/dispute-types"))
-                    @livewire('dispute-type.create')
-                @elseif(request()->is("admin/dispute-panel/dispute-requests"))
+                @if(request()->is("admin/dispute-panel/dispute-requests"))
                     @livewire('dispute-request.create')
+                @elseif(request()->is("admin/dispute-panel/dispute-types"))
+                    @livewire('dispute-type.create')
                 @endif
             </div>
         </div>

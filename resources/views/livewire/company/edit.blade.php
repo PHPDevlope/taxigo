@@ -95,7 +95,7 @@
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}
         </button>
-        <a data-bs-dismiss="offcanvas" class="btn btn-sm d-inline-flex btn-secondary">
+        <a href="{{ route('admin.company') }}" class="btn btn-sm d-inline-flex btn-secondary">
             {{ trans('global.cancel') }}
         </a>
     </div>

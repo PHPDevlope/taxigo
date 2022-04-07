@@ -1,68 +1,74 @@
-@extends('layouts.admin')
+@extends('taxigo.layouts.admin')
 @section('content')
-<div class="row">
-    <div class="card bg-blueGray-100">
-        <div class="card-header">
-            <div class="card-header-container">
-                <h6 class="card-title">
-                    {{ trans('global.view') }}
-                    {{ trans('cruds.disputeType.title_singular') }}:
-                    {{ trans('cruds.disputeType.fields.id') }}
-                    {{ $disputeType->id }}
-                </h6>
+    <header class="bg-surface-primary border-bottom pt-6 pb-6">
+        <div class="container-fluid">
+            <div class="mb-npx">
+                <div class="row align-nav-item">
+                    <div class="col-6 mb-4 mb-sm-0">
+                        <!-- Title -->
+                        <h4 class="h4 mb-0 ls-tight">
+                            {{ trans('global.view') }}
+                            {{ trans('cruds.disputeType.title_singular') }}:
+                            {{ trans('cruds.disputeType.fields.id') }}
+                            {{ $disputeType->id }}
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
+    </header>
 
-        <div class="card-body">
-            <div class="pt-3">
-                <table class="table table-view">
-                    <tbody class="bg-white">
-                        <tr>
-                            <th>
-                                {{ trans('cruds.disputeType.fields.id') }}
-                            </th>
-                            <td>
-                                {{ $disputeType->id }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ trans('cruds.disputeType.fields.dispute_type') }}
-                            </th>
-                            <td>
-                                {{ $disputeType->dispute_type_label }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ trans('cruds.disputeType.fields.dispute_issue') }}
-                            </th>
-                            <td>
-                                {{ $disputeType->dispute_issue }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                {{ trans('cruds.disputeType.fields.status') }}
-                            </th>
-                            <td>
-                                {{ $disputeType->status_label }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="form-group">
-                @can('dispute_type_edit')
-                    <a href="{{ route('admin.dispute-types.edit', $disputeType) }}" class="btn btn-indigo mr-2">
-                        {{ trans('global.edit') }}
-                    </a>
-                @endcan
-                <a href="{{ route('admin.dispute-types.index') }}" class="btn btn-secondary">
-                    {{ trans('global.back') }}
-                </a>
+    <main class="py-6 bg-surface-secondary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
+                    <div class="card-body">
+                        <div class="pt-3">
+                            <table class="table table-view">
+                                <tbody class="bg-white">
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.disputeType.fields.id') }}
+                                        </th>
+                                        <td>
+                                            {{ $disputeType->id }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.disputeType.fields.dispute_type') }}
+                                        </th>
+                                        <td>
+                                            {{ $disputeType->dispute_type_label }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.disputeType.fields.dispute_issue') }}
+                                        </th>
+                                        <td>
+                                            {{ $disputeType->dispute_issue }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            {{ trans('cruds.disputeType.fields.status') }}
+                                        </th>
+                                        <td>
+                                            {{ $disputeType->status_label }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group mt-4">
+                            <a href="{{ route('admin.dispute-panel.dispute-types') }}" class="btn btn-secondary btn-sm">
+                                {{ trans('global.back') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </main>
 @endsection

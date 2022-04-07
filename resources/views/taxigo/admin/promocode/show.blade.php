@@ -34,6 +34,19 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            User
+                                        </td>
+                                        <td>
+                                            @if($promocode->user)
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $promocode->user->name ?? '' }}
+                                                </span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th>
                                             {{ trans('cruds.promocode.fields.promocode') }}
                                         </th>

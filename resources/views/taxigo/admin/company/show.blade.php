@@ -39,7 +39,10 @@
                                             </th>
                                             <td>
                                                 @if($company->user)
-                                                    <span class="badge badge-relationship">{{ $company->user->name ?? '' }}</span>
+                                                    <span class="badge badge-lg badge-dot">
+                                                        <i class="bg-success"></i>
+                                                        {{ $company->user->name ?? '' }}
+                                                    </span>
                                                 @endif
                                             </td>
                                         </tr>

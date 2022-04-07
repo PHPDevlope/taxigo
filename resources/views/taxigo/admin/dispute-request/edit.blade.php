@@ -1,21 +1,34 @@
-@extends('layouts.admin')
+@extends('taxigo.layouts.admin')
 @section('content')
-<div class="row">
-    <div class="card bg-blueGray-100">
-        <div class="card-header">
-            <div class="card-header-container">
-                <h6 class="card-title">
-                    {{ trans('global.edit') }}
-                    {{ trans('cruds.disputeRequest.title_singular') }}:
-                    {{ trans('cruds.disputeRequest.fields.id') }}
-                    {{ $disputeRequest->id }}
-                </h6>
+
+<header class="bg-surface-primary border-bottom pt-6 pb-6">
+    <div class="container-fluid">
+        <div class="mb-npx">
+            <div class="row align-nav-item">
+                <div class="col-6 mb-4 mb-sm-0">
+                    <!-- Title -->
+                    <h4 class="h4 mb-0 ls-tight">
+                        {{ trans('global.edit') }}
+                        {{ trans('cruds.disputeRequest.title_singular') }}:
+                        {{ trans('cruds.disputeRequest.fields.id') }}
+                        {{ $disputeRequest->id }}
+                    </h4>
+                </div>
             </div>
         </div>
-
-        <div class="card-body">
-            @livewire('dispute-request.edit', [$disputeRequest])
+    </div>
+</header>
+<main class="py-6 bg-surface-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card bg-blueGray-100 col-xl-6 col-lg-6 col-md-12">
+                <div class="card-body">
+                    <div>
+                        @livewire('dispute-request.edit', [$disputeRequest])
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</main>
 @endsection

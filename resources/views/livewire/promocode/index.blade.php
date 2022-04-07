@@ -38,6 +38,9 @@
                                 {{ trans('cruds.promocode.fields.id') }}
                                 @include('components.table.sort', ['field' => 'id'])
                             </th>
+                            <th>
+                                {{ trans('cruds.promocode.fields.user_id') }}
+                            </th>
                             <th scope="col">
                                 {{ trans('cruds.promocode.fields.promocode') }}
                                 @include('components.table.sort', ['field' => 'promocode'])
@@ -74,6 +77,14 @@
                                 </td>
                                 <td>
                                     {{ $promocode->id }}
+                                </td>
+                                <td>
+                                    @if($promocode->user)
+                                        <span class="badge badge-lg badge-dot">
+                                            <i class="bg-success"></i>
+                                            {{ $promocode->user->name ?? '' }}
+                                        </span>
+                                    @endif
                                 </td>
                                 <td>
                                     {{ $promocode->promocode }}

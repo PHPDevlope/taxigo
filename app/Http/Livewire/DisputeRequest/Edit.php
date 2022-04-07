@@ -4,11 +4,14 @@ namespace App\Http\Livewire\DisputeRequest;
 
 use App\Models\DisputeRequest;
 use App\Models\DisputeType;
+use App\Models\RequestHistory;
 use Livewire\Component;
 
 class Edit extends Component
 {
     public array $listsForFields = [];
+
+    public $histories;
 
     public DisputeRequest $disputeRequest;
 
@@ -20,6 +23,8 @@ class Edit extends Component
 
     public function render()
     {
+        $request_id = $this->disputeRequest->request_detail;
+        $this->histories = RequestHistory::where('id', $request_id)->first();
         return view('livewire.dispute-request.edit');
     }
 
@@ -29,7 +34,7 @@ class Edit extends Component
 
         $this->disputeRequest->save();
 
-        return redirect()->route('admin.dispute-requests.index');
+        return redirect()->route('admin.dispute-panel.dispute-requests');
     }
 
     protected function rules(): array

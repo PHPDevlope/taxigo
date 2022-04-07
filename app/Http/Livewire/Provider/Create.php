@@ -10,19 +10,19 @@ class Create extends Component
 {
     public User $user;
 
-    public array $roles = [];
-
     public array $listsForFields = [];
 
     public function mount(User $user)
     {
         $this->user  = $user;
-        $this->roles = $this->user->roles()->pluck('id')->toArray();
         $this->initListsForFields();
     }
 
     public function render()
     {
+        $roles = Role::find('3');
+        $this->roles = $roles->id;
+
         return view('livewire.provider.create');
     }
 
@@ -46,14 +46,6 @@ class Create extends Component
                 'string',
                 'nullable',
             ],
-            'roles' => [
-                'required',
-                'array',
-            ],
-            'roles.*.id' => [
-                'integer',
-                'exists:roles,id',
-            ],
             'user.provider_status' => [
                 'nullable',
                 'in:' . implode(',', array_keys($this->listsForFields['provider_status'])),
@@ -63,7 +55,6 @@ class Create extends Component
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['roles']           = Role::pluck('title', 'id')->toArray();
         $this->listsForFields['provider_status'] = $this->user::PROVIDER_STATUS_SELECT;
     }
 }

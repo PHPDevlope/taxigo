@@ -21,14 +21,14 @@ class DisputeRequestController extends Controller
     {
         abort_if(Gate::denies('dispute_request_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispute-request.create');
+        return view('taxigo.admin.dispute-request.create');
     }
 
     public function edit(DisputeRequest $disputeRequest)
     {
         abort_if(Gate::denies('dispute_request_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispute-request.edit', compact('disputeRequest'));
+        return view('taxigo.admin.dispute-request.edit', compact('disputeRequest'));
     }
 
     public function show(DisputeRequest $disputeRequest)
@@ -37,6 +37,6 @@ class DisputeRequestController extends Controller
 
         $disputeRequest->load('dispute');
 
-        return view('admin.dispute-request.show', compact('disputeRequest'));
+        return view('taxigo.admin.dispute-request.show', compact('disputeRequest'));
     }
 }

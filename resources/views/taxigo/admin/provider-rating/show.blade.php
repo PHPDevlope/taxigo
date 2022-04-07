@@ -39,7 +39,10 @@
                                         </th>
                                         <td>
                                             @if($providerRating->request)
-                                                <span class="badge badge-relationship">{{ $providerRating->request->total_distance ?? '' }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $providerRating->request->total_distance ?? '' }}
+                                                </span>
                                             @endif
                                         </td>
                                     </tr>
@@ -49,7 +52,10 @@
                                         </th>
                                         <td>
                                             @if($providerRating->userName)
-                                                <span class="badge badge-relationship">{{ $providerRating->userName->name ?? '' }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $providerRating->userName->name ?? '' }}
+                                                </span>
                                             @endif
                                         </td>
                                     </tr>
@@ -59,7 +65,10 @@
                                         </th>
                                         <td>
                                             @if($providerRating->providerName)
-                                                <span class="badge badge-relationship">{{ $providerRating->providerName->name ?? '' }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $providerRating->providerName->name ?? '' }}
+                                                </span>
                                             @endif
                                         </td>
                                     </tr>

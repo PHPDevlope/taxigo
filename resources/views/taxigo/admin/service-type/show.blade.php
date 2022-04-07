@@ -119,7 +119,10 @@
                                         </th>
                                         <td>
                                             @foreach($serviceType->peakTime as $key => $entry)
-                                                <span class="badge badge-relationship">{{ $entry->peak_price }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $entry->peak_price }}
+                                                </span>
                                             @endforeach
                                         </td>
                                     </tr>
@@ -137,7 +140,10 @@
                                         </th>
                                         <td>
                                             @foreach($serviceType->geoFencing as $key => $entry)
-                                                <span class="badge badge-relationship">{{ $entry->city_name }}</span>
+                                                <span class="badge badge-lg badge-dot">
+                                                    <i class="bg-success"></i>
+                                                    {{ $entry->city_name }}
+                                                </span>
                                             @endforeach
                                         </td>
                                     </tr>

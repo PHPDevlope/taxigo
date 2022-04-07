@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Promocode;
 
 use App\Models\Promocode;
+use App\Models\User;
 use Livewire\Component;
 
 class Edit extends Component
@@ -58,11 +59,17 @@ class Edit extends Component
                 'nullable',
                 'date_format:' . config('project.date_format'),
             ],
+            'promocode.user_id' => [
+                'integer',
+                'exists:users,id',
+                'nullable',
+            ],
         ];
     }
 
     protected function initListsForFields(): void
     {
         $this->listsForFields['promocodes_use'] = $this->promocode::PROMOCODES_USE_SELECT;
+        $this->listsForFields['user'] = User::pluck('name', 'id')->toArray();
     }
 }

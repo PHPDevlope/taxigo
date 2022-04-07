@@ -46,7 +46,10 @@
                                         Company Name
                                     </td>
                                     <td>
-
+                                        <span class="badge badge-lg badge-dot">
+                                            <i class="bg-success"></i>
+                                            {{ $user->company->name ?? '' }}
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>

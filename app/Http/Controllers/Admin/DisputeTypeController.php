@@ -21,20 +21,20 @@ class DisputeTypeController extends Controller
     {
         abort_if(Gate::denies('dispute_type_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispute-type.create');
+        return view('taxigo.admin.dispute-type.create');
     }
 
     public function edit(DisputeType $disputeType)
     {
         abort_if(Gate::denies('dispute_type_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispute-type.edit', compact('disputeType'));
+        return view('taxigo.admin.dispute-type.edit', compact('disputeType'));
     }
 
     public function show(DisputeType $disputeType)
     {
         abort_if(Gate::denies('dispute_type_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.dispute-type.show', compact('disputeType'));
+        return view('taxigo.admin.dispute-type.show', compact('disputeType'));
     }
 }

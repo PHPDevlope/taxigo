@@ -33,18 +33,6 @@
         </div>
     </div>
 
-    <div class="form-group mt-2 {{ $errors->has('roles') ? 'invalid' : '' }}">
-        <label class="form-label required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-{{--        <input type="text" class="form-control" name="roles" id="roles" wire:model.defer="roles" value="{{ $this->listsForFields['roles']['6'] }}">--}}
-        <x-select-list class="form-control" required id="roles" name="roles" wire:model="roles" :options="$this->listsForFields['roles']" multiple />
-        <div class="validation-message">
-            {{ $errors->first('roles') }}
-        </div>
-        <div class="help-block">
-            {{ trans('cruds.user.fields.roles_helper') }}
-        </div>
-    </div>
-
     <div class="form-group mt-4">
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}

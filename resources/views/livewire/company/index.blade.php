@@ -84,7 +84,7 @@
                                 <td>
                                     @if($company->user)
                                         <span class="badge badge-lg badge-dot">
-                                            <i class="bi bi-success"></i>
+                                            <i class="bg-success"></i>
                                             {{ $company->user->name ?? '' }}
                                         </span>
                                     @endif

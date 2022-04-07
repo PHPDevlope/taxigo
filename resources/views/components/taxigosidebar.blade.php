@@ -22,7 +22,7 @@
                 @can('dispute_panel_access')
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is("admin/dispute-panel*") ? "active" : "" }}"
-                           href="{{route('admin.dispute-panel.dispute-types')}}" onclick="window.openSubNav(this)">
+                           href="{{route('admin.dispute-panel.dispute-requests')}}" onclick="window.openSubNav(this)">
                             <i class="fa-fw fas c-sidebar-nav-icon fa-dot-circle"></i>
                             Dispute Panel
                         </a>

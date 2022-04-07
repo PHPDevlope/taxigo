@@ -10,18 +10,16 @@ class Create extends Component
 {
     public User $user;
 
-    public array $roles = [];
-
-    public array $listsForFields = [];
-
     public function mount(User $user)
     {
         $this->user = $user;
-        $this->initListsForFields();
     }
 
     public function render()
     {
+        $roles = Role::find('7');
+        $this->roles = $roles->id;
+
         return view('livewire.dispute-manager.create');
     }
 
@@ -50,19 +48,6 @@ class Create extends Component
                 'required',
                 'unique:users,email',
             ],
-            'roles' => [
-                'required',
-                'array',
-            ],
-            'roles.*.id' => [
-                'integer',
-                'exists:roles,id',
-            ],
         ];
-    }
-
-    protected function initListsForFields(): void
-    {
-        $this->listsForFields['roles'] = Role::pluck('title', 'id')->toArray();
     }
 }

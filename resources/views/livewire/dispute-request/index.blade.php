@@ -71,8 +71,11 @@
                                     {{ $disputeRequest->request_detail }}
                                 </td>
                                 <td>
-                                    @if($disputeRequest->dispute)
-                                        <span class="badge badge-relationship">{{ $disputeRequest->dispute->dispute_type ?? '' }}</span>
+                                    @if($disputeRequest->dispute->dispute_type)
+                                        <span class="badge badge-lg badge-dot">
+                                            <i class="bg-success"></i>
+                                            {{ $disputeRequest->dispute->dispute_type }}
+                                        </span>
                                     @endif
                                 </td>
                                 <td class="text-end">

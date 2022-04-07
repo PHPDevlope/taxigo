@@ -41,7 +41,10 @@
                                             </th>
                                             <td>
                                                 @if($requestHistory->userName)
-                                                    <span class="badge badge-relationship">{{ $requestHistory->userName->name ?? '' }}</span>
+                                                    <span class="badge badge-lg badge-dot">
+                                                        <i class="bg-success"></i>
+                                                        {{ $requestHistory->userName->name ?? '' }}
+                                                    </span>
                                                 @endif
                                             </td>
                                         </tr>
@@ -51,7 +54,10 @@
                                             </th>
                                             <td>
                                                 @if($requestHistory->providerName)
-                                                    <span class="badge badge-relationship">{{ $requestHistory->providerName->name ?? '' }}</span>
+                                                    <span class="badge badge-lg badge-dot">
+                                                        <i class="bg-success"></i>
+                                                        {{ $requestHistory->providerName->name ?? '' }}
+                                                    </span>
                                                 @endif
                                             </td>
                                         </tr>

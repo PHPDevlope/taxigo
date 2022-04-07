@@ -1,5 +1,15 @@
 <form wire:submit.prevent="submit" class="pt-3">
 
+    <div class="form-group mt-2">
+        <label class="form-label">{{ trans('cruds.promocode.fields.user_id') }}</label>
+        <x-select-list class="form-control" id="user" name="user" :options="$this->listsForFields['user']" wire:model="promocode.user_id" />
+        <div class="validation-message">
+            {{ $errors->first('promocode.user_id') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.promocode.fields.user_id_helper') }}
+        </div>
+    </div>
     <div class="form-group mt-2 {{ $errors->has('promocode.promocode') ? 'invalid' : '' }}">
         <label class="form-label" for="promocode">{{ trans('cruds.promocode.fields.promocode') }}</label>
         <input class="form-control" type="text" name="promocode" id="promocode" wire:model.defer="promocode.promocode">
