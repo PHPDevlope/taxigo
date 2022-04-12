@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -24,6 +25,7 @@ class User extends Authenticatable implements HasLocalePreference, HasMedia
     use Notifiable;
     use SoftDeletes;
     use InteractsWithMedia;
+    use HasApiTokens;
 
     public const PROVIDER_STATUS_SELECT = [
         'no'  => 'No',
