@@ -23,6 +23,9 @@ use App\Http\Controllers\Api\V1\Admin\UserApiController;
 use App\Http\Controllers\Api\V1\Admin\UserRatingApiController;
 
 Route::post('login', [UserApiController::class, 'login']);
+Route::post('getotp', [UserApiController::class, 'getOtp']);
+Route::post('register', [UserApiController::class, 'register']);
+Route::post('loginmobile', [UserApiController::class, 'mobileLogin']);
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'middleware' => ['auth:sanctum']], function () {
     // Permissions

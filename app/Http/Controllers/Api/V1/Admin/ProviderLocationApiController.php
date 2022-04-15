@@ -37,6 +37,11 @@ class ProviderLocationApiController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
+    public function show(ProviderLocation $providerLocation)
+    {
+        return new ProviderLocationResource($providerLocation->load(['user']));
+    }
+
 
 }
 

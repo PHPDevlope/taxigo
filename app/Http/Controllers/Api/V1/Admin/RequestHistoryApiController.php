@@ -10,7 +10,6 @@ use App\Models\RequestHistory;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
 
 class RequestHistoryApiController extends Controller
 {
