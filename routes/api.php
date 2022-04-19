@@ -25,7 +25,7 @@ use App\Http\Controllers\Api\V1\Admin\UserRatingApiController;
 Route::post('login', [UserApiController::class, 'login']);
 Route::post('getotp', [UserApiController::class, 'getOtp']);
 Route::post('register', [UserApiController::class, 'register']);
-Route::post('loginmobile', [UserApiController::class, 'mobileLogin']);
+Route::post('loginWithOtp', [UserApiController::class, 'mobileLogin']);
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'middleware' => ['auth:sanctum']], function () {
     // Permissions
@@ -37,6 +37,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'middleware' => ['auth:sanctum']
     // Users
     Route::post('users/media', [UserApiController::class, 'storeMedia'])->name('users.store_media');
     Route::apiResource('users', UserApiController::class);
+    Route::get('checkAccessToken', [UserApiController::class, 'accessToken']);
+    Route::put('firebaseToken', [UserApiController::class, 'firebaseToken']);
+    Route::put('updateUser', [UserApiController::class, 'userUpdate']);
+    Route::get('userLoginProfile', [UserApiController::class, 'loginUserProfile']);
 
     // User Alert
     Route::apiResource('user-alerts', UserAlertApiController::class);

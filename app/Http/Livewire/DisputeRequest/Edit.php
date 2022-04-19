@@ -53,11 +53,26 @@ class Edit extends Component
                 'exists:dispute_types,id',
                 'nullable',
             ],
+            'disputeRequest.dispute_name_id' => [
+                'integer',
+                'exists:dispute_types,id',
+                'nullable',
+            ],
+            'disputeRequest.comment' => [
+                'string',
+                'nullable',
+            ],
+            'disputeRequest.status' => [
+                'nullable',
+                'in:' . implode(',', array_keys($this->listsForFields['status'])),
+            ],
         ];
     }
 
     protected function initListsForFields(): void
     {
         $this->listsForFields['dispute'] = DisputeType::pluck('dispute_type', 'id')->toArray();
+        $this->listsForFields['dispute_name'] = DisputeType::pluck('dispute_name', 'id')->toArray();
+        $this->listsForFields['status']       = $this->disputeRequest::STATUS_SELECT;
     }
 }

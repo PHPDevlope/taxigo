@@ -15,14 +15,14 @@
             {{ trans('cruds.disputeType.fields.dispute_type_helper') }}
         </div>
     </div>
-    <div class="form-group mt-2 {{ $errors->has('disputeType.dispute_issue') ? 'invalid' : '' }}">
-        <label class="form-label" for="dispute_issue">{{ trans('cruds.disputeType.fields.dispute_issue') }}</label>
-        <input class="form-control" type="text" name="dispute_issue" id="dispute_issue" wire:model.defer="disputeType.dispute_issue">
+    <div class="form-group mt-2 {{ $errors->has('disputeType.dispute_name') ? 'invalid' : '' }}">
+        <label class="form-label" for="dispute_issue">{{ trans('cruds.disputeType.fields.dispute_name') }}</label>
+        <input class="form-control" type="text" name="dispute_name" id="dispute_name" wire:model.defer="disputeType.dispute_name">
         <div class="validation-message">
-            {{ $errors->first('disputeType.dispute_issue') }}
+            {{ $errors->first('disputeType.dispute_name') }}
         </div>
         <div class="help-block">
-            {{ trans('cruds.disputeType.fields.dispute_issue_helper') }}
+            {{ trans('cruds.disputeType.fields.dispute_name_helper') }}
         </div>
     </div>
     <div class="form-group mt-2 {{ $errors->has('disputeType.status') ? 'invalid' : '' }}">

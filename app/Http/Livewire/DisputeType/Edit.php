@@ -28,7 +28,7 @@ class Edit extends Component
 
         $this->disputeType->save();
 
-        return redirect()->route('admin.dispute-types.index');
+        return redirect()->route('admin.dispute-panel.dispute-types');
     }
 
     protected function rules(): array
@@ -38,7 +38,7 @@ class Edit extends Component
                 'nullable',
                 'in:' . implode(',', array_keys($this->listsForFields['dispute_type'])),
             ],
-            'disputeType.dispute_issue' => [
+            'disputeType.dispute_name' => [
                 'string',
                 'nullable',
             ],

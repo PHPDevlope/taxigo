@@ -61,6 +61,42 @@
         </table>
     </div>
 
+    <div class="form-group mt-2 {{ $errors->has('disputeRequest.dispute_name_id') ? 'invalid' : '' }}">
+        <label class="form-label" for="dispute_name">{{ trans('cruds.disputeRequest.fields.dispute_name') }}</label>
+        <x-select-list class="form-control" id="dispute_name" name="dispute_name" :options="$this->listsForFields['dispute_name']" wire:model="disputeRequest.dispute_name_id" />
+        <div class="validation-message">
+            {{ $errors->first('disputeRequest.dispute_name_id') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.disputeRequest.fields.dispute_name_helper') }}
+        </div>
+    </div>
+    <div class="form-group mt-2 {{ $errors->has('disputeRequest.comment') ? 'invalid' : '' }}">
+        <label class="form-label" for="comment">{{ trans('cruds.disputeRequest.fields.comment') }}</label>
+        <input class="form-control" type="text" name="comment" id="comment" wire:model.defer="disputeRequest.comment">
+        <div class="validation-message">
+            {{ $errors->first('disputeRequest.comment') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.disputeRequest.fields.comment_helper') }}
+        </div>
+    </div>
+    <div class="form-group mt-2 {{ $errors->has('disputeRequest.status') ? 'invalid' : '' }}">
+        <label class="form-label">{{ trans('cruds.disputeRequest.fields.status') }}</label>
+        <select class="form-control" wire:model="disputeRequest.status">
+            <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>
+            @foreach($this->listsForFields['status'] as $key => $value)
+                <option value="{{ $key }}">{{ $value }}</option>
+            @endforeach
+        </select>
+        <div class="validation-message">
+            {{ $errors->first('disputeRequest.status') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.disputeRequest.fields.status_helper') }}
+        </div>
+    </div>
+
     <div class="form-group mt-4">
         <button class="btn d-inline-flex btn-sm btn-dark" type="submit">
             {{ trans('global.save') }}

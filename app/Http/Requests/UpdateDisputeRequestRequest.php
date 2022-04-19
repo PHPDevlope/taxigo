@@ -38,6 +38,19 @@ class UpdateDisputeRequestRequest extends FormRequest
                 'exists:dispute_types,id',
                 'nullable',
             ],
+            'dispute_name_id' => [
+                'integer',
+                'exists:dispute_types,id',
+                'nullable',
+            ],
+            'comment' => [
+                'string',
+                'nullable',
+            ],
+            'status' => [
+                'nullable',
+                'in:' . implode(',', array_keys(DisputeRequest::STATUS_SELECT)),
+            ],
         ];
     }
 }

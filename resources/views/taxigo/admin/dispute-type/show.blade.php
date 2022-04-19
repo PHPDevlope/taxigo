@@ -44,10 +44,10 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            {{ trans('cruds.disputeType.fields.dispute_issue') }}
+                                            {{ trans('cruds.disputeType.fields.dispute_name') }}
                                         </th>
                                         <td>
-                                            {{ $disputeType->dispute_issue }}
+                                            {{ $disputeType->dispute_name }}
                                         </td>
                                     </tr>
                                     <tr>

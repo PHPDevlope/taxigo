@@ -33,7 +33,7 @@ class Edit extends Component
         $this->role->save();
         $this->role->permissions()->sync($this->permissions);
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.role-management.roles');
     }
 
     protected function rules(): array

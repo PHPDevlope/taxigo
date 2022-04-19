@@ -38,7 +38,7 @@ class Create extends Component
                 'nullable',
                 'in:' . implode(',', array_keys($this->listsForFields['dispute_type'])),
             ],
-            'disputeType.dispute_issue' => [
+            'disputeType.dispute_name' => [
                 'string',
                 'nullable',
             ],

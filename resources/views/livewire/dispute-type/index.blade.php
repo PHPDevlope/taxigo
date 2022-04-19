@@ -44,8 +44,8 @@
                             @include('components.table.sort', ['field' => 'dispute_type'])
                         </th>
                         <th scope="col">
-                            {{ trans('cruds.disputeType.fields.dispute_issue') }}
-                            @include('components.table.sort', ['field' => 'dispute_issue'])
+                            {{ trans('cruds.disputeType.fields.dispute_name') }}
+                            @include('components.table.sort', ['field' => 'dispute_name'])
                         </th>
                         <th scope="col">
                             {{ trans('cruds.disputeType.fields.status') }}
@@ -68,7 +68,7 @@
                                 {{ $disputeType->dispute_type_label }}
                             </td>
                             <td>
-                                {{ $disputeType->dispute_issue }}
+                                {{ $disputeType->dispute_name }}
                             </td>
                             <td>
                                 {{ $disputeType->status_label }}

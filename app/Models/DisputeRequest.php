@@ -14,6 +14,11 @@ class DisputeRequest extends Model
     use HasAdvancedFilter;
     use SoftDeletes;
 
+    public const STATUS_SELECT = [
+        'open'  => 'Open',
+        'close' => 'Close',
+    ];
+
     public $table = 'dispute_requests';
 
     public $orderable = [
@@ -46,6 +51,16 @@ class DisputeRequest extends Model
     {
         return $this->belongsTo(DisputeType::class);
     }
+
+    public function disputeName()
+    {
+        return $this->belongsTo(DisputeType::class);
+    }
+
+//    public function requestDetail()
+//    {
+//        return $this->belongsTo(RequestHistory::class,'request_detail','id');
+//    }
 
     protected function serializeDate(DateTimeInterface $date)
     {

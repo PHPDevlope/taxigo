@@ -33,14 +33,14 @@ class DisputeType extends Model
     public $orderable = [
         'id',
         'dispute_type',
-        'dispute_issue',
+        'dispute_name',
         'status',
     ];
 
     public $filterable = [
         'id',
         'dispute_type',
-        'dispute_issue',
+        'dispute_name',
         'status',
     ];
 
@@ -52,7 +52,7 @@ class DisputeType extends Model
 
     protected $fillable = [
         'dispute_type',
-        'dispute_issue',
+        'dispute_name',
         'status',
     ];
 

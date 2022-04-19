@@ -29,7 +29,7 @@ class StoreDisputeTypeRequest extends FormRequest
                 'nullable',
                 'in:' . implode(',', array_keys(DisputeType::DISPUTE_TYPE_SELECT)),
             ],
-            'dispute_issue' => [
+            'dispute_name' => [
                 'string',
                 'nullable',
             ],

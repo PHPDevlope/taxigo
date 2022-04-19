@@ -52,6 +52,14 @@
                                 @include('components.table.sort', ['field' => 'dispute.dispute_type'])
                             </th>
                             <th scope="col">
+                                {{ trans('cruds.disputeRequest.fields.comment') }}
+                                @include('components.table.sort', ['field' => 'comment'])
+                            </th>
+                            <th scope="col">
+                                {{ trans('cruds.disputeRequest.fields.status') }}
+                                @include('components.table.sort', ['field' => 'status'])
+                            </th>
+                            <th scope="col">
                             </th>
                         </tr>
                     </thead>
@@ -69,6 +77,7 @@
                                 </td>
                                 <td>
                                     {{ $disputeRequest->request_detail }}
+
                                 </td>
                                 <td>
                                     @if($disputeRequest->dispute->dispute_type)
@@ -77,6 +86,12 @@
                                             {{ $disputeRequest->dispute->dispute_type }}
                                         </span>
                                     @endif
+                                </td>
+                                <td>
+                                    {{ $disputeRequest->comment }}
+                                </td>
+                                <td>
+                                    {{ $disputeRequest->status }}
                                 </td>
                                 <td class="text-end">
                                     <div class="flex justify-end">

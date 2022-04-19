@@ -11,6 +11,8 @@ use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserApiController extends Controller
@@ -27,51 +29,53 @@ class UserApiController extends Controller
     public function login(Request $request)
     {
         $request->validate([
+            'name' => '',
+            'mobile' => '',
             'email' => 'email',
-            'mobile' => 'min:10',
             'password' => ''
         ]);
 
-//        $credentials = request(['email', 'password']);
-//        if (!auth()->attempt($credentials)) {
-//            return response()->json([
-//                'message' => 'The given data was invalid.',
-//                'errors' => [
-//                    'password' => [
-//                        'Invalid credentials'
-//                    ],
-//                ]
-//            ], 422);
-//        }
-
-        $user = User::when($request->has('email'), function($query) use ($request){
-            $query->where('email', $request->email);
-        })->when($request->has('mobile'), function($query) use ($request){
-            $query->where('mobile', $request->mobile);
-        })->first();
+        if($request->has('mobile') && $request->has('otp'))
+        {
+            $user = User::with(['roles'])->when($request->has('mobile') && $request->has('otp'), function($query) use ($request) {
+                $query->where('mobile', $request->mobile);
+            })->first();
+        }
+        else
+        {
+            if($request->has('email') && $request->has('password'))
+            {
+                $user = User::with(['roles'])->updateOrCreate([
+                    'email' => $request->email,
+                ],[
+                    'email' => $request->email,
+                    'password' => $request->password,
+                ]);
+            }
+            else
+            {
+                $user = User::with(['roles'])->updateOrCreate([
+                    'mobile' => $request->mobile,
+                    "mobile_verified_at" => Carbon::now(),
+                ],[
+                    'mobile' => $request->mobile,
+                    'password' => $request->password,
+                ]);
+            }
+        }
 
         $authToken = $user->createToken('auth-token')->plainTextToken;
 
         return response()->json([
             'access_token' => $authToken,
+            'user' => $user,
         ]);
-    }
-
-    public function mobileLogin(Request $request)
-    {
-        $request->validate([
-            'mobile' => 'min:10',
-        ]);
-
-        $user = User::where('mobile', $request->mobile)->first();
-        return $user;
-
     }
 
     public function getOtp(Request $request)
     {
         $request->validate([
-            'mobile' => 'required',
+            'mobile' => 'min:10',
             'otp' => ''
         ]);
 
@@ -82,30 +86,114 @@ class UserApiController extends Controller
             'otp' => random_int(1000,9999),
         ]);
 
-        $success['otp'] = $credentials->otp;
-        return response()->json([
-            'is_success' => $success['otp'],
-        ]);
+        $success = $credentials->otp;
+        if($success)
+        {
+            return response()->json([
+                'is_success' => True
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'is_success' => 'Otp not Generated',
+            ]);
+        }
 //
     }
 
-    public function register(Request $request)
+    public function accessToken(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
+        if (Auth::check()) {
+            return response()->json([
+                'is_success' => true
+            ], 200);
+        }
+        else
+        {
+            return response()->json([
+                'is_success' => false
+            ], 200);
+        }
+    }
+
+    public function firebaseToken(Request $request)
+    {
+
+        $user = User::where('id', auth()->id())->update([
+            'firebase_token' => $request->firebase_token,
+            'device_token'   => $request->device_token,
+            'device_type'    => $request->device_type,
+            'device'         => $request->device,
         ]);
-
-        $credentials = request(['name','email', 'password']);
-        $credentials['password'] = Hash::make($credentials['password']);
-
-        $user = User::create($credentials);
-        $success['token'] =  $user->createToken('auth-token')->plainTextToken;
         return response()->json([
-            'access_token' => $success['token'],
+            "is_success" => true,
+            "message" => "User updated successfully.",
+            "user" => $user
         ]);
     }
+
+    public function userUpdate(Request $request)
+    {
+        $user = User::where('id', auth()->id())->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'bio' => $request->bio,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+        ]);
+        return response()->json([
+            "success" => true,
+            "message" => "User updated successfully.",
+            "user" => $user
+        ]);
+    }
+
+    public function loginUserProfile(Request $request)
+    {
+        $id = auth()->id();
+
+        $user = User::with(['roles'])->find($id);
+
+        return response()->json([
+           "user" => $user,
+        ]);
+    }
+
+//    public function mobileLogin(Request $request)
+//    {
+//        $request->validate([
+//            'mobile' => 'min:10',
+//            'otp' => ''
+//        ]);
+//
+//        $user = User::where([['mobile', $request->mobile],['otp', $request->otp]])->first();
+//        $authToken = $user->createToken('auth-token')->plainTextToken;
+//
+//        return response()->json([
+//            'access_token' => $authToken,
+//        ]);
+//
+//    }
+
+//    public function register(Request $request)
+//    {
+//        $request->validate([
+//            'name' => 'required|max:255',
+//            'email' => 'required|email|unique:users',
+//            'password' => 'required|min:8',
+//        ]);
+//
+//        $credentials = request(['name','email', 'password']);
+//        $credentials['password'] = Hash::make($credentials['password']);
+//
+//        $user = User::create($credentials);
+//        $success['token'] =  $user->createToken('auth-token')->plainTextToken;
+//        return response()->json([
+//            'access_token' => "Successfully registered User",
+//        ]);
+//    }
 
     public function store(StoreUserRequest $request)
     {
