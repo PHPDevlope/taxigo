@@ -26,6 +26,7 @@ class DisputeRequest extends Model
         'user_provider',
         'request_detail',
         'dispute.dispute_type',
+        'refund_amount',
     ];
 
     public $filterable = [
@@ -33,6 +34,7 @@ class DisputeRequest extends Model
         'user_provider',
         'request_detail',
         'dispute.dispute_type',
+        'refund_amount',
     ];
 
     protected $dates = [
@@ -45,6 +47,7 @@ class DisputeRequest extends Model
         'user_provider',
         'request_detail',
         'dispute_id',
+        'refund_amount',
     ];
 
     public function dispute()

@@ -105,30 +105,30 @@
 {{--                                    </div>--}}
                                 </div>
                             </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">Sedan:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">102</span>
-                            </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">Hatchback:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>
-                            </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">SUV:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>
-                            </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">Limousine:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>
-                            </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">Water Tanker:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>
-                            </div>
-                            <div class="mt-2 mb-0 text-sm">
-                                <span class="text-nowrap text-xs text-muted">Bike:</span>
-                                <span class="badge badge-pill bg-soft-danger text-white me-2">2</span>
-                            </div>
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">Sedan:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">102</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">Hatchback:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">SUV:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">Limousine:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">Water Tanker:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">0</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-2 mb-0 text-sm">--}}
+{{--                                <span class="text-nowrap text-xs text-muted">Bike:</span>--}}
+{{--                                <span class="badge badge-pill bg-soft-danger text-white me-2">2</span>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

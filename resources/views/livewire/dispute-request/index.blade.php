@@ -59,6 +59,10 @@
                                 {{ trans('cruds.disputeRequest.fields.status') }}
                                 @include('components.table.sort', ['field' => 'status'])
                             </th>
+                            <th>
+                                {{ trans('cruds.disputeRequest.fields.refund_amount') }}
+                                @include('components.table.sort', ['field' => 'refund_amount'])
+                            </th>
                             <th scope="col">
                             </th>
                         </tr>
@@ -92,6 +96,9 @@
                                 </td>
                                 <td>
                                     {{ $disputeRequest->status }}
+                                </td>
+                                <td>
+                                    {{ $disputeRequest->refund_amount }}
                                 </td>
                                 <td class="text-end">
                                     <div class="flex justify-end">

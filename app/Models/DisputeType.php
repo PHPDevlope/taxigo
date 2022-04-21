@@ -22,10 +22,10 @@ class DisputeType extends Model
     public const DISPUTE_TYPE_SELECT = [
         'user'            => 'User',
         'provider'        => 'Provider',
-        'fleet_owner'     => 'Fleet Owner',
-        'dispatcher'      => 'Dispatcher',
-        'account_manager' => 'Account Manager',
-        'dispute_manager' => 'Dispute Manager',
+//        'fleet_owner'     => 'Fleet Owner',
+//        'dispatcher'      => 'Dispatcher',
+//        'account_manager' => 'Account Manager',
+//        'dispute_manager' => 'Dispute Manager',
     ];
 
     public $table = 'dispute_types';

@@ -74,6 +74,10 @@ class Create extends Component
                 'nullable',
                 'in:' . implode(',', array_keys($this->listsForFields['status'])),
             ],
+            'disputeRequest.refund_amount' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 

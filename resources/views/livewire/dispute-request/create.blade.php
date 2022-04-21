@@ -7,7 +7,12 @@
     </style>
     <div class="form-group mt-2 {{ $errors->has('disputeRequest.dispute_id') ? 'invalid' : '' }}">
         <label class="form-label" for="dispute">{{ trans('cruds.disputeRequest.fields.dispute') }}</label>
-        <x-select-list class="form-control" id="dispute" name="dispute" :options="$this->listsForFields['dispute']" wire:model="disputeRequest.dispute_id" />
+        <select class="form-control" wire:model="disputeRequest.dispute_id">
+            <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>
+            @foreach($this->listsForFields['dispute'] as $key => $value)
+                <option value="{{ $key }}">{{ $value }}</option>
+            @endforeach
+        </select>
         <div class="validation-message">
             {{ $errors->first('disputeRequest.dispute_id') }}
         </div>
@@ -69,31 +74,6 @@
         </div>
         <div class="help-block">
             {{ trans('cruds.disputeRequest.fields.dispute_name_helper') }}
-        </div>
-    </div>
-    <div class="form-group mt-2 {{ $errors->has('disputeRequest.comment') ? 'invalid' : '' }}">
-        <label class="form-label" for="comment">{{ trans('cruds.disputeRequest.fields.comment') }}</label>
-        <input class="form-control" type="text" name="comment" id="comment" wire:model.defer="disputeRequest.comment">
-        <div class="validation-message">
-            {{ $errors->first('disputeRequest.comment') }}
-        </div>
-        <div class="help-block">
-            {{ trans('cruds.disputeRequest.fields.comment_helper') }}
-        </div>
-    </div>
-    <div class="form-group mt-2 {{ $errors->has('disputeRequest.status') ? 'invalid' : '' }}">
-        <label class="form-label">{{ trans('cruds.disputeRequest.fields.status') }}</label>
-        <select class="form-control" wire:model="disputeRequest.status">
-            <option value="null" disabled>{{ trans('global.pleaseSelect') }}...</option>
-            @foreach($this->listsForFields['status'] as $key => $value)
-                <option value="{{ $key }}">{{ $value }}</option>
-            @endforeach
-        </select>
-        <div class="validation-message">
-            {{ $errors->first('disputeRequest.status') }}
-        </div>
-        <div class="help-block">
-            {{ trans('cruds.disputeRequest.fields.status_helper') }}
         </div>
     </div>
 

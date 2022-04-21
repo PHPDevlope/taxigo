@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\Admin\PaymentHistoryApiController;
 use App\Http\Controllers\Api\V1\Admin\PeakTimeApiController;
 use App\Http\Controllers\Api\V1\Admin\PermissionApiController;
 use App\Http\Controllers\Api\V1\Admin\PromocodeApiController;
+use App\Http\Controllers\Api\V1\Admin\ProviderApiController;
 use App\Http\Controllers\Api\V1\Admin\ProviderLocationApiController;
 use App\Http\Controllers\Api\V1\Admin\ProviderRatingApiController;
 use App\Http\Controllers\Api\V1\Admin\ProvidersettlementApiController;

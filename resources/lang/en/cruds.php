@@ -249,6 +249,8 @@ return [
             'comment_helper'        => ' ',
             'status'                => 'Status',
             'status_helper'         => ' ',
+            'refund_amount'         => 'Refund Amount',
+            'refund_amount_helper'  => ' ',
             'created_at'            => 'Created at',
             'created_at_helper'     => ' ',
             'updated_at'            => 'Updated at',

@@ -18,6 +18,7 @@ class AddColumnToDisputeRequestsTable extends Migration
             $table->foreign('dispute_name_id', 'dispute_name_fk_6458195')->references('id')->on('dispute_types');
             $table->string('comment')->nullable();
             $table->string('status')->nullable();
+            $table->string('refund_amount')->nullable();
         });
     }
 
